@@ -8,20 +8,121 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="#F1F1F1"
-        tools:ignore="MissingConstraints">
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:orientation="vertical"
+            android:background="#F1F1F1"
+            tools:ignore="MissingConstraints">
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="725dp"
+            android:orientation="vertical"
+            android:background="#F1F1F1"
+            tools:ignore="MissingConstraints">
+
+            <!-- Getting the first name -->
+
+            <TextView
+                android:id="@+id/text_firstname"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="First Name"
+                android:layout_gravity="left"
+                />
+
+            <EditText
+                android:id="@+id/edit_firstname"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"/>
+
+            <!-- Getting the surname -->
+
+            <TextView
+                android:id="@+id/text_surname"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="Surname"
+                android:layout_gravity="left"
+                />
+
+            <EditText
+                android:id="@+id/edit_surname"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"/>
+
+            <!-- Getting the email  -->
+
+            <TextView
+                android:id="@+id/text_email"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="Email"
+                android:layout_gravity="left"
+                />
+
+            <EditText
+                android:id="@+id/edit_email"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"/>
+
+            <!-- Getting the password  -->
+
+            <TextView
+                android:id="@+id/text_password"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="Password"
+                android:layout_gravity="left"
+                />
+
+            <EditText
+                android:id="@+id/edit_password"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:inputType="textPassword"
+                />
+
+
+            <!-- Getting the password confirmation  -->
+
+            <TextView
+                android:id="@+id/text_password_confirmation"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="Confirm Password"
+                android:layout_gravity="left"
+                />
+
+            <EditText
+                android:id="@+id/edit_password_confirmation"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:inputType="textPassword"/>
+
+            <!-- Logging the user in -->
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:text="Sign up"
+                android:id="@+id/btn_signup" />
+
+
+        </LinearLayout>
+
+
+
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="#F1F1F1"
-        tools:ignore="MissingConstraints">
-
-    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
