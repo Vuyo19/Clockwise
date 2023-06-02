@@ -23,11 +23,11 @@
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 android:text="Welcome Back!"
-                android:fontFamily="@font/basementgrotesque"
+                android:fontFamily="@font/SquadaOne_Regular"
                 android:layout_gravity="center"
-                android:textSize="34dp"
+                android:textSize="38dp"
                 android:textColor="@color/white"
-                android:layout_marginTop="80dp"
+                android:layout_marginTop="82dp"
                 android:layout_marginBottom="0dp"/>
 
             <TextView

@@ -34,11 +34,11 @@
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 android:text="Register"
-                android:fontFamily="@font/basementgrotesque"
+                android:fontFamily="@font/SquadaOne_Regular"
                 android:layout_gravity="center"
-                android:textSize="28dp"
+                android:textSize="36dp"
                 android:textColor="@color/white"
-                android:layout_marginLeft="15dp"
+                android:layout_marginLeft="40dp"
                 android:layout_marginBottom="5dp"/>
 
 
