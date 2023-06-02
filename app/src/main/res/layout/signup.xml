@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/register_back_img"
     tools:context=".Signup">
 
     <LinearLayout
@@ -15,9 +16,31 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:orientation="vertical"
-            android:background="#F1F1F1"
+            android:orientation="horizontal"
             tools:ignore="MissingConstraints">
+
+            <ImageButton
+                android:id="@+id/Btn_back"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/baseline_arrow_back"
+                android:background="@android:color/transparent"
+                android:contentDescription="Back Button"
+                android:layout_marginTop="35dp"/>
+
+
+            <TextView
+                android:id="@+id/text_register"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="Register"
+                android:fontFamily="@font/basementgrotesque"
+                android:layout_gravity="center"
+                android:textSize="28dp"
+                android:textColor="@color/white"
+                android:layout_marginLeft="15dp"
+                android:layout_marginBottom="5dp"/>
+
 
 
         </LinearLayout>
@@ -26,95 +49,155 @@
             android:layout_width="match_parent"
             android:layout_height="725dp"
             android:orientation="vertical"
-            android:background="#F1F1F1"
             tools:ignore="MissingConstraints">
 
             <!-- Getting the first name -->
 
             <TextView
                 android:id="@+id/text_firstname"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:layout_width="100dp"
                 android:text="First Name"
+                android:textColor="@color/white"
                 android:layout_gravity="left"
-                />
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="0dp"
+                android:layout_marginLeft="46dp"
+                android:background="@drawable/textbox_element"
+                android:paddingStart="10dp" />
+
 
             <EditText
                 android:id="@+id/edit_firstname"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"/>
+                android:layout_height="70dp"
+                android:layout_width="350dp"
+                android:layout_gravity="center"
+                android:background="@drawable/pink_border"
+                android:hint="Enter your first name"
+                android:textColorHint="@android:color/white"
+                android:textSize="16sp"
+                android:paddingStart="20dp"/>
 
             <!-- Getting the surname -->
 
             <TextView
                 android:id="@+id/text_surname"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text="Surname"
+                android:layout_height="24dp"
+                android:layout_width="100dp"
+                android:text="Last Name"
+                android:textColor="@color/white"
                 android:layout_gravity="left"
-                />
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="0dp"
+                android:layout_marginLeft="46dp"
+                android:background="@drawable/textbox_element"
+                android:paddingStart="10dp" />
 
             <EditText
                 android:id="@+id/edit_surname"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"/>
+                android:layout_height="70dp"
+                android:layout_width="350dp"
+                android:layout_gravity="center"
+                android:background="@drawable/pink_border"
+                android:hint="Enter your last name"
+                android:textColorHint="@android:color/white"
+                android:textSize="16sp"
+                android:paddingStart="20dp"/>
 
             <!-- Getting the email  -->
 
             <TextView
                 android:id="@+id/text_email"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:layout_width="80dp"
                 android:text="Email"
+                android:textColor="@color/white"
                 android:layout_gravity="left"
-                />
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="0dp"
+                android:layout_marginLeft="46dp"
+                android:background="@drawable/textbox_element"
+                android:paddingStart="10dp"/>
 
             <EditText
                 android:id="@+id/edit_email"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"/>
+                android:layout_height="70dp"
+                android:layout_width="350dp"
+                android:layout_gravity="center"
+                android:background="@drawable/pink_border"
+                android:hint="Enter your email address"
+                android:textColorHint="@android:color/white"
+                android:textSize="16sp"
+                android:paddingStart="20dp"/>
 
             <!-- Getting the password  -->
 
             <TextView
                 android:id="@+id/text_password"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:layout_width="100dp"
                 android:text="Password"
+                android:textColor="@color/white"
                 android:layout_gravity="left"
-                />
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="0dp"
+                android:layout_marginLeft="46dp"
+                android:background="@drawable/textbox_element"
+                android:paddingStart="10dp"/>
 
             <EditText
                 android:id="@+id/edit_password"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_width="350dp"
+                android:layout_gravity="center"
+                android:background="@drawable/pink_border"
                 android:inputType="textPassword"
-                />
+                android:hint="Create a password"
+                android:textColorHint="@android:color/white"
+                android:textSize="16sp"
+                android:paddingStart="20dp"/>
 
 
             <!-- Getting the password confirmation  -->
 
             <TextView
                 android:id="@+id/text_password_confirmation"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:layout_width="135dp"
                 android:text="Confirm Password"
+                android:textColor="@color/white"
                 android:layout_gravity="left"
-                />
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="0dp"
+                android:layout_marginLeft="46dp"
+                android:background="@drawable/textbox_element"
+                android:paddingStart="10dp"/>
 
             <EditText
                 android:id="@+id/edit_password_confirmation"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:inputType="textPassword"/>
+                android:layout_height="70dp"
+                android:layout_width="350dp"
+                android:layout_gravity="center"
+                android:background="@drawable/pink_border"
+                android:inputType="textPassword"
+                android:hint="Re-enter the password"
+                android:textColorHint="@android:color/white"
+                android:textSize="16sp"
+                android:paddingStart="20dp"/>
 
             <!-- Logging the user in -->
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="250dp"
+                android:layout_height="65dp"
+                android:layout_gravity="center"
                 android:text="Sign up"
-                android:id="@+id/btn_signup" />
+                android:textColor="@color/white"
+                android:id="@+id/btn_signup"
+                android:background="@drawable/rounded_button"
+                android:textSize="16sp"
+                android:textAllCaps="false"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="15dp"/>
 
 
         </LinearLayout>
