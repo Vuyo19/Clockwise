@@ -1,20 +1,24 @@
 package com.example.clockwise
 
 import android.annotation.SuppressLint
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import android.content.Intent
-import android.widget.Button
+import android.os.Bundle
+import android.text.method.HideReturnsTransformationMethod
+import android.text.method.PasswordTransformationMethod
+import android.view.MotionEvent
 import android.view.View
+import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView;
-import androidx.core.text.HtmlCompat
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 
 
 // For the login page.
 class Login : AppCompatActivity() {
 
+
     private lateinit var back_button: Button
+
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +46,10 @@ class Login : AppCompatActivity() {
 
         val text_email = findViewById<EditText>(R.id.edit_email)
         val text_password = findViewById<EditText>(R.id.edit_password);
+
+
+
+
 
 
 
