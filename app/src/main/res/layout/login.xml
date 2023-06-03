@@ -224,14 +224,14 @@
         <!-- Contents of the 7th layout -->
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="99dp"
+            android:layout_height="120dp"
             android:backgroundTint="@color/black">
 
             <!-- Filling out screen -->
             <View
                 android:id="@+id/screenFiller"
                 android:layout_width="match_parent"
-                android:layout_height="99dp"
+                android:layout_height="109dp"
                 android:background="#000000" />
 
         </LinearLayout>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/home_page_back_img"
+    tools:context=".Home">
+
+    <TextView
+        android:id="@+id/txt_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="April 10, 2023"
+        android:fontFamily="@font/basementgrotesque"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="20dp"/>
+
+    <RelativeLayout
+        android:id="@+id/today_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt_date"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp">
+
+        <TextView
+            android:id="@+id/txt_today"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TODAY"
+            android:fontFamily="@font/basementgrotesque"
+            android:textColor="@android:color/white"
+            android:textSize="35sp"
+            android:layout_marginEnd="20dp" />
+
+        <!-- Calendar Icon -->
+        <ImageView
+            android:id="@+id/icon_today"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_toEndOf="@id/txt_today"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="6dp"
+            android:src="@drawable/baseline_calendar_today_24"
+            android:textColor="@color/white"
+            />
+
+        <!-- Button -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_action"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="Create Task"
+            android:layout_toEndOf="@id/icon_today"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/small_rounded_button"
+            android:textColor="@android:color/white" />
+
+
+    </RelativeLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/nav"
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/menu_bar"
+        app:itemTextColor="@drawable/menu_items_attr"
+        app:itemIconTint="@drawable/menu_items_attr"
+        android:background="@drawable/menu_back_drop"
+        android:layout_height="wrap_content" />
+
+
+
+</RelativeLayout>
+
+
