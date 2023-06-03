@@ -2,55 +2,177 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/daily_goal_back_img"
+    tools:context=".Hour_Goal">
 
-    <EditText
-        android:id="@+id/PlainTxt_maxHours"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="100dp"
-        tools:layout_editor_absoluteY="187dp" />
+    <!-- Primary layout holding all other secondary layouts -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/Btn_saveHrs"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="SAVE"
-        tools:layout_editor_absoluteX="158dp"
-        tools:layout_editor_absoluteY="395dp" />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="272dp"
+    android:orientation="vertical"
+    android:layout_gravity="center">
 
-    <TextView
-        android:id="@+id/txt_enterMaxHrs"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Enter your maximum work hours:"
-        tools:layout_editor_absoluteX="100dp"
-        tools:layout_editor_absoluteY="168dp" />
-
-    <TextView
-        android:id="@+id/txt_enterMinHrs"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Enter you minimun work hours:"
-        tools:layout_editor_absoluteX="105dp"
-        tools:layout_editor_absoluteY="265dp" />
-
-    <EditText
-        android:id="@+id/PlainTxt_minHours"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="100dp"
-        tools:layout_editor_absoluteY="291dp" />
-
-    <Button
+    <!-- Return Back to previous page Button -->
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/Btn_back"
-        android:layout_width="85dp"
-        android:layout_height="42dp"
-        android:text="BACK"
-        tools:layout_editor_absoluteX="13dp"
-        tools:layout_editor_absoluteY="14dp" />
+        android:layout_width="55dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/baseline_arrow_back"
+        android:contentDescription="Back Button"
+        android:layout_marginTop="36dp"
+        android:layout_marginLeft="15dp"
+        android:background="@drawable/alt_back_button"
+        android:drawableStart="@drawable/baseline_arrow_back_24"
+        android:paddingStart="18dp"
+        android:layout_marginStart="15dp" />
+
+
+    <!-- Page Heading -->
+    <TextView
+        android:id="@+id/text_register"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="DAILY GOAL"
+        android:fontFamily="@font/basementgrotesque"
+        android:layout_gravity="center"
+        android:textSize="36dp"
+        android:textColor="@color/white"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"/>
+
+    <!-- Page Description -->
+    <TextView
+        android:id="@+id/text_desc"
+        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:text="Set a minimum and maximum goal for hours worked today"
+        android:fontFamily="@font/basementgrotesque"
+        android:layout_gravity="center"
+        android:textSize="10sp"
+        android:textAlignment="center"
+        android:textColor="@color/white" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp">
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:src="@drawable/baseline_calendar_today_24"
+            android:background="@android:color/transparent"
+            android:contentDescription="Back Button"
+            android:layout_marginTop="38dp"
+            android:layout_marginStart="100dp"/>
+
+        <TextView
+            android:id="@+id/current_date"
+            android:layout_height="wrap_content"
+            android:layout_width="200dp"
+            android:text="03 JUNE 2023"
+            android:fontFamily="@font/basementgrotesque"
+            android:layout_gravity="center"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:layout_marginTop="20dp"/>
+    </LinearLayout>
+
+</LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:orientation="vertical"
+            android:layout_marginTop="20dp">
+
+            <!-- Enter Maximum Hours label -->
+            <TextView
+                android:id="@+id/txt_enterMaxHrs"
+                android:layout_height="24dp"
+                android:layout_width="125dp"
+                android:text="Maximum Hours"
+                android:textColor="@color/white"
+                android:layout_gravity="left"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="0dp"
+                android:layout_marginLeft="70dp"
+                android:background="@drawable/textbox_element"
+                android:paddingStart="10dp" />
+
+            <!-- Enter Maximum Hours text-box -->
+            <EditText
+                android:id="@+id/PlainTxt_maxHours"
+                android:layout_height="75dp"
+                android:layout_width="300dp"
+                android:layout_gravity="center"
+                android:background="@drawable/pink_border"
+                android:hint="Enter your first name"
+                android:textColor="@color/white"
+                android:textColorHint="@android:color/white"
+                android:textSize="16sp"
+                android:paddingStart="20dp"/>
+
+
+            <!-- Enter Maximum Hours label -->
+            <TextView
+                android:id="@+id/txt_enterMinHrs"
+                android:layout_height="24dp"
+                android:layout_width="125dp"
+                android:text="Minimum Hours"
+                android:textColor="@color/white"
+                android:layout_gravity="left"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="0dp"
+                android:layout_marginLeft="70dp"
+                android:background="@drawable/textbox_element"
+                android:paddingStart="10dp" />
+
+            <!-- Enter Maximum Hours text-box -->
+            <EditText
+                android:id="@+id/PlainTxt_minHours"
+                android:layout_height="75dp"
+                android:layout_width="300dp"
+                android:layout_gravity="center"
+                android:background="@drawable/pink_border"
+                android:hint="Enter your first name"
+                android:textColor="@color/white"
+                android:textColorHint="@android:color/white"
+                android:textSize="16sp"
+                android:paddingStart="20dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!-- Save Button -->
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/Btn_saveHrs"
+                android:layout_width="250dp"
+                android:layout_height="55dp"
+                android:layout_gravity="center"
+                android:text="Save"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:background="@drawable/small_rounded_button"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="150dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
