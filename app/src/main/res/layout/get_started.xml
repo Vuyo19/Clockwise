@@ -16,17 +16,17 @@
         <!-- Contents of the 1st layout -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="507dp"
-            android:layout_gravity="center"
+            android:layout_height="495dp"
             android:background="#000000"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_gravity="center">
 
             <!-- Application Visual Asset -->
             <ImageView
                 android:id="@+id/quickInfo"
                 android:layout_width="410dp"
-                android:layout_height="418dp"
-                android:layout_marginTop="100dp"
+                android:layout_height="465dp"
+                android:layout_marginTop="50dp"
                 android:layout_marginBottom="50dp"
                 android:contentDescription="Application Information"
                 app:srcCompat="@drawable/get_started_image_asset" />
@@ -38,19 +38,20 @@
             android:layout_height="70dp"
             android:background="#000000"
             android:gravity="center"
+
             >
 
             <!-- Informative Text -->
             <TextView
                 android:id="@+id/text_info"
                 android:layout_width="290dp"
-                android:layout_height="match_parent"
+                android:layout_height="70dp"
                 android:layout_weight="2"
+                android:text="Effortless productivity made easy: Streamline your tasks with our convenient time manager."
+                android:textColor="#f6dace"
                 android:gravity="center"
                 android:paddingStart="16dp"
-                android:paddingEnd="16dp"
-                android:text="Effortless productivity made easy: Streamline your tasks with our convenient time manager."
-                android:textColor="#f6dace" />
+                android:paddingEnd="16dp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -64,16 +65,17 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_get_started"
                 android:layout_width="300dp"
-                android:layout_height="93dp"
+                android:layout_height="75dp"
                 android:layout_gravity="center"
                 android:background="@drawable/rounded_button"
-                android:drawableRight="@drawable/baseline_arrow_forward_24"
-                android:paddingStart="88dp"
-                android:paddingEnd="86dp"
                 android:text="Get started"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:drawableRight="@drawable/baseline_arrow_forward_24"
+                android:paddingStart="88dp"
+                android:paddingEnd="86dp"
+                />
         </LinearLayout>
 
     </LinearLayout>

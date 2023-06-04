@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/home_page_back_img"
+    android:layout_height="wrap_content"
+    android:background="#080206"
     tools:context=".Home">
 
     <!-- Text - Displaying Current date  -->
@@ -57,12 +57,13 @@
             android:id="@+id/btn_create_task"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:text="Create Task"
-            android:layout_toEndOf="@id/icon_today"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="20dp"
+            android:layout_toEndOf="@id/icon_today"
             android:background="@drawable/small_rounded_button"
-            android:textColor="@android:color/white" />
+            android:text="Create Task"
+            android:textColor="#442C2E"
+            android:textStyle="bold" />
 
 
     </RelativeLayout>
@@ -124,20 +125,22 @@
 
     <RelativeLayout
         android:id="@+id/back_drop"
-        android:layout_width="420dp"
-        android:layout_height="460dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_below="@id/date_layout"
         android:background="@drawable/home_page_back_drop">
 
+        <!-- Initial Fragment if user has provided no data for the current day-->
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fragmentContainerView"
             android:name="com.example.clockwise.EmptyData"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_preview="@layout/preview_empty_data_layout"
             tools:layout="@layout/fragment_empty_data" />
 
     </RelativeLayout>
+
+
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -149,6 +152,9 @@
         app:itemIconTint="@drawable/menu_items_attr"
         android:background="@drawable/menu_back_drop"
         android:layout_height="wrap_content" />
+
+
+
 
 
 
