@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/profile_back_img"
+    tools:context=".Profile">
+
+    <!-- Primary layout holding all other secondary layouts -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- Contents of the 1st layout -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:orientation="horizontal"
+            tools:ignore="MissingConstraints">
+
+            <!-- Name of Interface -->
+            <TextView
+                android:id="@+id/text_register"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="Profile"
+                android:fontFamily="@font/basementgrotesque"
+                android:layout_gravity="center"
+                android:textSize="20sp"
+                android:textColor="#ffb8cc"
+                android:layout_marginLeft="22dp"
+                android:layout_marginRight="234dp"/>
+
+            <!-- Edit user profile Button -->
+            <ImageButton
+                android:id="@+id/btn_edit_profile"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:background="@null"
+                android:scaleType="fitCenter"
+                android:src="@drawable/edit_profile_icon" />
+        </LinearLayout>
+
+        <!-- Contents of the 2nd layout -->
+        <LinearLayout
+            android:id="@+id/back_drop"
+            android:layout_width="350dp"
+            android:layout_height="270dp"
+            android:layout_below="@id/date_layout"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:background="@drawable/header_item">
+
+            <!-- User's initials -->
+            <TextView
+                android:id="@+id/user_initials"
+                android:layout_height="120dp"
+                android:layout_width="140dp"
+                android:text="TS"
+                android:fontFamily="@font/basementgrotesque"
+                android:textColor="@color/white"
+                android:textSize="56sp"
+                android:layout_gravity="center"
+                android:layout_marginTop="45dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/profile_icon_element"
+                android:paddingStart="30dp"
+                android:paddingTop="20dp"/>
+
+            <!-- User's Full name -->
+            <TextView
+                android:id="@+id/profile_fullName"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="Thiago Silva"
+                android:fontFamily="@font/basementgrotesque"
+                android:layout_gravity="center"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:layout_marginBottom="5dp"/>
+
+            <!-- User's Email Address -->
+            <TextView
+                android:id="@+id/profile_email"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="thiagosilva@gmail.com"
+                android:fontFamily="@font/basementgrotesque"
+                android:layout_gravity="center"
+                android:textSize="13sp"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+
+        <!-- Contents of the 3rd layout -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="375dp"
+            android:orientation="vertical"
+            android:layout_marginTop="35dp"
+            tools:ignore="MissingConstraints">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_notifications"
+                android:layout_width="250dp"
+                android:layout_height="65dp"
+                android:layout_gravity="center"
+                android:text="Notifications"
+                android:textColor="@color/white"
+                android:background="@drawable/alt_button_2"
+                android:textSize="16sp"
+                android:textAllCaps="false"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="15dp"
+                android:drawableRight="@drawable/baseline_arrow_forward_ios_24"
+                android:paddingEnd="16dp"
+                android:drawableLeft="@drawable/baseline_notifications_24"
+                android:paddingStart="16dp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_workspace"
+                android:layout_width="250dp"
+                android:layout_height="65dp"
+                android:layout_gravity="center"
+                android:text="Notifications"
+                android:textColor="@color/white"
+                android:background="@drawable/alt_button_2"
+                android:textSize="16sp"
+                android:textAllCaps="false"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="45dp"
+                android:drawableRight="@drawable/baseline_arrow_forward_ios_24"
+                android:paddingEnd="16dp"
+                android:drawableLeft="@drawable/baseline_settings_24"
+                android:paddingStart="16dp"
+                />
+
+            <!-- Log Out Button -->
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="250dp"
+                android:layout_height="65dp"
+                android:layout_gravity="center"
+                android:text="Log Out"
+                android:textColor="#442C2E"
+                android:id="@+id/btn_signup"
+                android:background="@drawable/rounded_button"
+                android:textSize="16sp"
+                android:textAllCaps="false"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="15dp"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <!-- Menu Nav -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/nav"
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/menu_bar"
+        app:itemTextColor="@drawable/menu_items_attr"
+        app:itemIconTint="@drawable/menu_items_attr"
+        android:background="@drawable/menu_back_drop"
+        android:layout_height="wrap_content" />
+
+</RelativeLayout>

@@ -48,7 +48,7 @@
                 android:layout_height="70dp"
                 android:layout_weight="2"
                 android:text="Effortless productivity made easy: Streamline your tasks with our convenient time manager."
-                android:textColor="#f6dace"
+                android:textColor="#ffb8cc"
                 android:gravity="center"
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp"/>
@@ -70,7 +70,7 @@
                 android:background="@drawable/rounded_button"
                 android:text="Get started"
                 android:textAllCaps="false"
-                android:textColor="@color/white"
+                android:textColor="#442C2E"
                 android:textSize="16sp"
                 android:drawableRight="@drawable/baseline_arrow_forward_24"
                 android:paddingStart="88dp"
