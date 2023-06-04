@@ -21,6 +21,7 @@ class Login : AppCompatActivity() {
 
     private lateinit var back_button: Button
 
+
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,9 +43,9 @@ class Login : AppCompatActivity() {
         val signup_link = findViewById<TextView>(R.id.text_noaccount);
 
         signup_link.setOnClickListener {
-            // Perform the action when the link is clicked.
-            val intent = Intent(this, Signup::class.java)
-            startActivity(intent)
+                // Perform the action when the link is clicked.
+                val intent = Intent(this, Signup::class.java)
+                startActivity(intent)
         }
 
         // If the user clicks on the button to login.
@@ -80,7 +81,7 @@ class Login : AppCompatActivity() {
             Toast.makeText(this, "User exists!", Toast.LENGTH_SHORT).show()
 
             // Taking the user to the homepage.
-            val intent = Intent(this@Login, Home::class.java)
+            val intent = Intent(this@Login, GetStarted::class.java)
             startActivity(intent)
 
         } else {

@@ -1,17 +1,22 @@
 package com.example.clockwise
 
+import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import android.view.MenuItem
+import android.widget.Button
 import androidx.annotation.NonNull
 import com.google.android.material.navigation.NavigationBarView
 
 class Home : AppCompatActivity() {
 
     private lateinit var nav: BottomNavigationView
+    private lateinit var button_create_task: Button
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.home)
@@ -28,5 +33,15 @@ class Home : AppCompatActivity() {
             }
             true
         }
+
+       // Directing the user to the create task page if button clicked.
+        button_create_task = findViewById<Button>(R.id.btn_create_task);
+
+        button_create_task.setOnClickListener {
+            val intent = Intent(this@Home, CreateTask::class.java)
+            startActivity(intent)
+        }
+
+
     }
 }
