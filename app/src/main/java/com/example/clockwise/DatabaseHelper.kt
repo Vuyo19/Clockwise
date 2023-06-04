@@ -1,5 +1,6 @@
 package com.example.clockwise
 
+import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.content.Context
 import android.database.Cursor
@@ -33,7 +34,7 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
     }
 
     // This method is for adding data in our database
-    fun addUser(name : String, surname : String, email: String, password: String ){
+    fun addUser(name : String, surname : String, email: String, password: String){
 
         // below we are creating
         // a content values variable
@@ -47,11 +48,9 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
 
         // Encrypt the password first before putting the password into the database.
         // Salt and hash the password.
-
-
-
-
-        values.put("Password", password)
+        val pwdProcess = SaltHashPassword() // Creating an object to use the Salt and Hash Password class.
+        var passwordConfig = pwdProcess.hashPassword(password)
+        values.put("Password", passwordConfig)
 
         // here we are creating a
         // writable variable of
@@ -72,19 +71,37 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
     // all data from our database
 
     // Signing the user in
-    fun signinUser(): Cursor? {
+    @SuppressLint("Range")
+    fun signinUser(emailCheck: String, passwordCheck: String): Boolean {
 
         // here we are creating a readable
         // variable of our database
         // as we want to read value from it
         val db = this.readableDatabase
+        // Creating an object for the database process.
+
+        val pwdProcess = SaltHashPassword(); // Creating an object to use the Salt and Hash Password class.
+
+        var validUser = false
 
         // below code returns a cursor to
         // read data from the database
-        return db.rawQuery("SELECT * FROM " + TABLE_NAME, null)
+        val rowExists = "SELECT Email, Password FROM " + TABLE_NAME + " WHERE Email = ?"
+        val selectionArgs = arrayOf(emailCheck)
+        val cursor = db.rawQuery(rowExists, selectionArgs)
+
+        val enteredPasswordHash = pwdProcess.hashPassword(passwordCheck)
+
+        if(cursor.moveToFirst()) {
+            var databaseHashPassword = cursor.getString(cursor.getColumnIndex("Password"));
+
+            if(enteredPasswordHash == databaseHashPassword) {
+                validUser = true
+            }
+        }
 
 
-
+        return validUser
     }
 
     companion object{

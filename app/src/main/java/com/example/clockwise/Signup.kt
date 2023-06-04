@@ -41,40 +41,39 @@ class Signup : AppCompatActivity() {
 
             var passwordEditText = findViewById<EditText>(R.id.edit_password);
             var password = passwordEditText.text.toString(); // Get the actual value
-            var passwordConfig = hashPasswordGenerate(password);
 
 
-            // creating variables for values
-            // in name and age edit texts
-            // calling method to add
-            // name to our database
-            db.addUser(firstName, lastName, email, passwordConfig);
+            var passwordConfirmEditText = findViewById<EditText>(R.id.edit_password_confirmation);
+            var passwordConfirm = passwordConfirmEditText.text.toString();
 
-            // Clearing the text after signing up
-            firstNameEditText.setText("");
-            lastNameEditText.setText("");
-            emailEditText.setText("");
-            passwordEditText.setText("");
 
-            // Taking the user to the login page to officially sign in
-            // User will be redirected to the login page.
-            val intent = Intent(this@Signup, Login::class.java)
-            startActivity(intent)
+            // Checking if the password matches with the password Confirmation.
+            if(password == passwordConfirm) {
+
+                // creating variables for values
+                // in name and age edit texts
+                // calling method to add
+                // name to our database
+                db.addUser(firstName, lastName, email, password);
+
+                // Clearing the text after signing up
+                firstNameEditText.setText("");
+                lastNameEditText.setText("");
+                emailEditText.setText("");
+                passwordEditText.setText("");
+
+                // Taking the user to the login page to officially sign in
+                // User will be redirected to the login page.
+                // Perform the action when the link is clicked.
+                val intent = Intent(this@Signup, GetStarted::class.java)
+                startActivity(intent)
+
+            } else {
+                Toast.makeText(this, "Password must match with password confirmation", Toast.LENGTH_SHORT).show()
+            }
+
 
         }
 
-    }
-
-    fun hashPasswordGenerate(requestedPassword: String): String {
-
-        // Creating an object from the SaltHashPassword Class.
-        val pwdProcess = SaltHashPassword(); // Creating an object to use the Salt and Hash Password class.
-
-        // Variables for creating the Salt and Hash Password.
-        var password: String;
-        val salt = pwdProcess.generateSalt(); // Generating the salt
-        var hashedPassword = pwdProcess.hashPassword(requestedPassword, salt); // Generating the hashedPassword.
-
-        return hashedPassword; // returning the hashed Password back.
     }
 }

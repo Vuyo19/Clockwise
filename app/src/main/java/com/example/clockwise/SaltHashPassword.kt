@@ -16,16 +16,18 @@ class SaltHashPassword() {
     }
 
     // Method to hash the password
-    fun hashPassword(password: String, salt: ByteArray): String {
+    fun hashPassword(password: String): String {
+        val bytes = password.toByteArray()
         val md = MessageDigest.getInstance("SHA-256")
-        md.update(salt)
-        val hashedPassword = md.digest(password.toByteArray())
-        return Base64.getEncoder().encodeToString(hashedPassword)
+        val digest = md.digest(bytes)
+        return digest.fold("", { str, it -> str + "%02x".format(it) })
     }
 
     // Checking if the password is correct.
-    fun verifyPassword(enteredPassword: String, hashedPassword: String, salt: ByteArray): Boolean {
-        val hashedEnteredPassword = hashPassword(enteredPassword, salt)
+    fun verifyPassword(enteredPassword: String, hashedPassword: String): Boolean {
+
+        val hashedEnteredPassword = hashPassword(enteredPassword)
+
         return hashedEnteredPassword == hashedPassword
     }
 
