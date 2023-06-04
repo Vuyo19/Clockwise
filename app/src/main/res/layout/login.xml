@@ -4,114 +4,237 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/login_back_img"
     tools:context=".Login">
 
+    <!-- Primary layout holding all other secondary layouts -->
     <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+        <!-- Contents of the 1st layout -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="124dp"
+            android:layout_height="190dp"
             android:orientation="vertical"
-            android:layout_gravity="center">
+            android:layout_gravity="center"
+            >
 
+            <!-- Welcome Message -->
             <TextView
                 android:id="@+id/text_welcome"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 android:text="Welcome Back!"
+                android:fontFamily="@font/squadaoneregular"
                 android:layout_gravity="center"
-                android:textSize="32dp"
-                android:layout_marginTop="22dp"
-                android:layout_marginBottom="10dp"/>
+                android:textSize="38sp"
+                android:textColor="@color/white"
+                android:layout_marginTop="80dp"
+                android:layout_marginBottom="0dp"/>
 
+            <!-- Instruction Message -->
             <TextView
                 android:id="@+id/text_instruction"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 android:text="Sign in to continue"
-                android:layout_gravity="center"
-
-                />
-
-
+                android:textColor="@color/white"
+                android:layout_gravity="center"/>
         </LinearLayout>
 
+        <!-- Contents of the 2nd layout -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="531dp"
+            android:layout_height="320dp"
             android:orientation="vertical">
 
+            <!-- Enter email label -->
             <TextView
                 android:id="@+id/text_email"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 android:text="Email"
+                android:textColor="@color/white"
+                android:textSize="16sp"
                 android:layout_gravity="left"
-                />
+                android:layout_marginTop="80dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="40dp" />
 
+            <!-- Enter email text-box -->
             <EditText
                 android:id="@+id/edit_email"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"/>
+                android:layout_height="70dp"
+                android:layout_width="350dp"
+                android:layout_gravity="center"
+                android:textColor="@color/white"
+                android:background="@drawable/pink_border"
+                android:inputType="textEmailAddress"
+                android:hint="Enter your email address"
+                android:textColorHint="@android:color/white"
+                android:textSize="16sp"
+                android:paddingStart="20dp"
+                android:paddingEnd="15dp"
+                android:drawableRight="@drawable/baseline_mail_outline_24"/>
 
-
+            <!-- Enter password label -->
             <TextView
                 android:id="@+id/text_password"
+                android:layout_width="141dp"
                 android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
                 android:text="Password"
+                android:textColor="@color/white"
+                android:textSize="16sp"
                 android:layout_gravity="left"
-                />
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="40dp"/>
 
+            <!-- Enter password text-box -->
             <EditText
                 android:id="@+id/edit_password"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"/>
+                android:layout_height="70dp"
+                android:layout_width="350dp"
+                android:layout_gravity="center"
+                android:textColor="@color/white"
+                android:background="@drawable/pink_border"
+                android:inputType="textPassword"
+                android:hint="Enter your password"
+                android:textColorHint="@android:color/white"
+                android:textSize="16sp"
+                android:paddingStart="20dp"
+                android:paddingEnd="15dp"
+                android:drawableRight="@drawable/baseline_lock_24"/>
 
+
+        </LinearLayout>
+
+        <!-- Contents of the 3rd layout -->
+        <LinearLayout
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+
+            <!-- Forgot Password Message -->
             <TextView
                 android:id="@+id/text_forgot_messaege"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:text="Forget password? Reset"
-                android:layout_gravity="left"
+                android:text="Forget password? "
+                android:textColor="@color/white"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
                 />
 
-            <Button
-                android:layout_width="wrap_content"
+            <!-- Reset Password Gateway -->
+            <TextView
+                android:id="@+id/reset_password"
                 android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="R͟e͟s͟e͟t͟"
+                android:textColor="#9f6f95"
                 android:layout_gravity="center"
-                android:text="Sign in"
-                android:id="@+id/btn_signin"/>
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp" />
 
+        </LinearLayout>
+
+        <!-- Contents of the 4th layout -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:orientation="vertical">
+
+            <!-- Sign In Button -->
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="250dp"
+                android:layout_height="65dp"
+                android:layout_gravity="center"
+                android:text="Sign In"
+                android:textColor="@color/white"
+                android:id="@+id/btn_signin"
+                android:background="@drawable/rounded_button"
+                android:textSize="16sp"
+                android:textAllCaps="false"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="15dp"/>
+
+        </LinearLayout>
+
+        <!-- Contents of the 5th layout -->
+        <LinearLayout
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+
+            <!-- Don't have an account Message -->
             <TextView
                 android:id="@+id/text_noaccount"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:text="Don't have an account? Sign up"
-                android:layout_gravity="left"
-                />
+                android:text="Don't have an account? "
+                android:textColor="@color/white"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp" />
 
+            <!-- Sign Up for an Account Gateway -->
+            <TextView
+                android:id="@+id/signup_user"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="S͟i͟g͟n͟ U͟p͟"
+                android:textColor="#9f6f95"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp" />
 
         </LinearLayout>
 
+        <!-- Contents of the 6th layout -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="75dp"
+            android:layout_height="110dp"
             android:orientation="vertical">
 
-            <Button
-                android:layout_width="wrap_content"
+            <!-- Return Back to previous page Button -->
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:text="Back"
-                android:id="@+id/btn_back_login" />
-
-
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:id="@+id/btn_back_login"
+                android:background="@drawable/small_rounded_button"
+                android:layout_marginLeft="15dp"
+                android:drawableLeft="@drawable/baseline_arrow_back"
+                android:layout_marginTop="25dp"
+                android:paddingStart="18dp"
+                android:paddingEnd="16dp"
+                android:layout_marginStart="15dp" />
         </LinearLayout>
 
+
+        <!-- Contents of the 7th layout -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="120dp"
+            android:backgroundTint="@color/black">
+
+            <!-- Filling out screen -->
+            <View
+                android:id="@+id/screenFiller"
+                android:layout_width="match_parent"
+                android:layout_height="109dp"
+                android:background="#000000" />
+
+        </LinearLayout>
 
 
 

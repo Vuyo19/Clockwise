@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/hours"
+        android:icon="@drawable/hour_icon"
+        android:title="Hours"/>
+
+    <item
+        android:id="@+id/projects"
+        android:icon="@drawable/project_icon"
+        android:title="Projects"/>
+
+
+    <item
+        android:id="@+id/reports"
+        android:icon="@drawable/reports_icon"
+        android:title="Reports"/>
+
+    <item
+        android:id="@+id/profile"
+        android:icon="@drawable/profile_icon"
+        android:title="Profile"/>
+
+</menu>
