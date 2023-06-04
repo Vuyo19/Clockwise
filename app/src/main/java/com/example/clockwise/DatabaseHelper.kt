@@ -44,6 +44,13 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
         values.put("Name", name)
         values.put("Surname", surname)
         values.put("Email", email)
+
+        // Encrypt the password first before putting the password into the database.
+        // Salt and hash the password.
+
+
+
+
         values.put("Password", password)
 
         // here we are creating a
@@ -57,12 +64,15 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
 
         // at last we are
         // closing our database
-        db.close()
+        // db.close()
+
     }
 
     // below method is to get
     // all data from our database
-    fun getName(): Cursor? {
+
+    // Signing the user in
+    fun signinUser(): Cursor? {
 
         // here we are creating a readable
         // variable of our database
@@ -72,6 +82,8 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
         // below code returns a cursor to
         // read data from the database
         return db.rawQuery("SELECT * FROM " + TABLE_NAME, null)
+
+
 
     }
 
