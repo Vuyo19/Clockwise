@@ -6,9 +6,29 @@
     tools:context=".CurrentDay">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <RelativeLayout
+        android:id="@+id/back_drop"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_marginTop="100dp"
+        android:layout_below="@id/date_layout"
+        android:background="@drawable/home_page_back_drop">
+
+        <!-- Task -->
+        <TextView
+            android:id="@+id/text_register"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Tasks"
+            android:fontFamily="@font/basementgrotesque"
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:layout_marginLeft="22dp"
+            android:layout_marginRight="234dp"
+            android:layout_marginTop="40dp"/>
+
+    </RelativeLayout>
 
 </FrameLayout>

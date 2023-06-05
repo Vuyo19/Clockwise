@@ -127,8 +127,7 @@
         android:id="@+id/back_drop"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/date_layout"
-        android:background="@drawable/home_page_back_drop">
+        android:layout_below="@id/date_layout">
 
         <!-- Initial Fragment if user has provided no data for the current day-->
         <androidx.fragment.app.FragmentContainerView
