@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import kotlin.properties.Delegates
 
 class Hour_Goal : AppCompatActivity(){
@@ -28,6 +29,9 @@ class Hour_Goal : AppCompatActivity(){
 
     private lateinit var txtMax : String
 
+    //database reference
+    //private lateinit var clockwiseDB : DatabaseReference
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.hour_goal)
@@ -41,7 +45,7 @@ class Hour_Goal : AppCompatActivity(){
 
         }
 
-        //connecting local properties layout properties
+        //connecting local properties to layout properties
         saveBtn = findViewById(R.id.Btn_saveHrs);
         minHours = findViewById(R.id.PlainTxt_minHours);
         maxHours = findViewById(R.id.PlainTxt_maxHours);
@@ -58,6 +62,23 @@ class Hour_Goal : AppCompatActivity(){
 
             //saving value to int
             userMaxHrs = Integer.parseInt(txtMax);
+
+            /* gotta wait for some advances in the database first...
+            //SAVING TO DATABASE
+            clockwiseDB = FirebaseDatabase.getInstance().getReference("HourGoals")
+            clockwiseDB.child(loggedUser).setValue(maxHours, minHours).addOnSuccessListener{
+                //clearing EditText boxes
+                findViewById<EditText>(R.id.PlainTxt_maxHours).text.clear()
+                findViewById<EditText>(R.id.PlainTxt_minHours).text.clear()
+
+                //showing success message
+                Toast.makeText(this, "Saved Successfully", Toast.LENGTH_SHORT).show()
+
+            }.addOnFailureListener{
+                //error handling
+                //showing success message
+                Toast.makeText(this, "Operation Failed. Try Again", Toast.LENGTH_SHORT)
+            }*/
         }
     }
 
