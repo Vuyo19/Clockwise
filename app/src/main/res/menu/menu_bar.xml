@@ -3,7 +3,7 @@
 
     <item
         android:id="@+id/hours"
-        android:icon="@drawable/hour_icon"
+        android:icon="@drawable/hours_icon"
         android:title="Hours"/>
 
     <item
