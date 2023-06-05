@@ -36,11 +36,10 @@
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 android:text="Register"
-                android:fontFamily="@font/squadaoneregular"
+                android:fontFamily="@font/basementgrotesque"
                 android:layout_gravity="center"
                 android:textSize="36dp"
-                android:textColor="@color/white"
-                android:layout_marginLeft="40dp" />
+                android:textColor="@color/white" />
         </LinearLayout>
 
         <!-- Contents of the 2nd layout -->
@@ -203,6 +202,7 @@
                 android:layout_height="65dp"
                 android:layout_gravity="center"
                 android:text="Sign up"
+                android:textStyle="bold"
                 android:textColor="@color/white"
                 android:id="@+id/btn_signup"
                 android:background="@drawable/rounded_button"

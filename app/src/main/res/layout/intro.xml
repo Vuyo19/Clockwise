@@ -48,6 +48,7 @@
                 android:layout_height="60dp"
                 android:layout_weight="2"
                 android:text="Stay at the pinnacle of productivity effortlessly"
+                android:textStyle="bold"
                 android:textColor="#FFFFFF"
                 android:gravity="left"
                 android:layout_marginLeft="22dp"/>
@@ -84,6 +85,7 @@
                 android:layout_height="75dp"
                 android:layout_gravity="center"
                 android:text="Continue with email"
+                android:textStyle="bold"
                 android:textColor="@color/white"
                 android:id="@+id/btn_continue_email"
                 android:background="@drawable/rounded_button"
@@ -123,6 +125,7 @@
                 android:layout_height="60dp"
                 android:layout_weight="2"
                 android:text="Continue using one of these platforms"
+                android:textStyle="bold"
                 android:textColor="#FFFFFF"
                 android:gravity="center" />
         </LinearLayout>
