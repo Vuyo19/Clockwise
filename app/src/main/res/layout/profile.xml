@@ -36,12 +36,13 @@
             <!-- Edit user profile Button -->
             <ImageButton
                 android:id="@+id/btn_edit_profile"
-                android:layout_width="40dp"
+                android:layout_width="50dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
                 android:background="@null"
                 android:scaleType="fitCenter"
-                android:src="@drawable/edit_profile_icon" />
+                android:src="@drawable/edit_profile_icon"
+                android:contentDescription="Edit profile button"/>
         </LinearLayout>
 
         <!-- Contents of the 2nd layout -->
@@ -147,7 +148,7 @@
                 android:textColor="#442C2E"
                 android:id="@+id/btn_signup"
                 android:background="@drawable/rounded_button"
-                android:textSize="16sp"
+                android:textSize="18sp"
                 android:textAllCaps="false"
                 android:layout_marginTop="30dp"
                 android:layout_marginBottom="15dp"/>

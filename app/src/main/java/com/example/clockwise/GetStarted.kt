@@ -8,6 +8,7 @@ import android.widget.Button
 class GetStarted : AppCompatActivity() {
 
     private lateinit var button_get_started: Button
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.get_started)
