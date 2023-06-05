@@ -12,16 +12,7 @@
         android:theme="@style/Theme.Clockwise"
         tools:targetApi="31">
         <activity
-            android:name=".Profile"
-            android:exported="false" />
-        <activity
-            android:name=".Demo"
-            android:exported="false" />
-        <activity
-            android:name=".Home"
-            android:exported="false" />
-        <activity
-            android:name=".GetStarted"
+            android:name=".ListView_Layout"
             android:exported="false" />
         <activity
             android:name=".Intro"
@@ -32,8 +23,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Login" />
-        <activity android:name=".Signup" />
+        <activity android:name=".Login"></activity>
+        <activity android:name=".Signup"></activity>
     </application>
 
 </manifest>
