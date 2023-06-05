@@ -52,9 +52,9 @@
         android:layout_height="wrap_content"
         android:layout_width="200dp"
         android:text="Set a minimum and maximum goal for hours worked today"
-        android:fontFamily="@font/basementgrotesque"
+        android:textStyle="bold"
         android:layout_gravity="center"
-        android:textSize="10sp"
+        android:textSize="11sp"
         android:textAlignment="center"
         android:textColor="@color/white" />
 
@@ -159,6 +159,7 @@
                 android:layout_height="55dp"
                 android:layout_gravity="center"
                 android:text="Save"
+                android:textStyle="bold"
                 android:textSize="16sp"
                 android:textColor="@color/white"
                 android:background="@drawable/small_rounded_button"
