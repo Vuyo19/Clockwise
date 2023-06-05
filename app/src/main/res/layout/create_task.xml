@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/daily_goal_back_img">
+    android:background="@drawable/create_task_back_img">
 
     <!-- Primary layout holding all other secondary layouts -->
     <LinearLayout
@@ -13,7 +14,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="272dp"
+            android:layout_height="152dp"
             android:orientation="vertical"
             android:layout_gravity="center">
 
@@ -49,11 +50,11 @@
             <TextView
                 android:id="@+id/text_desc"
                 android:layout_height="wrap_content"
-                android:layout_width="200dp"
+                android:layout_width="230dp"
                 android:text="Customize your task by providing the necessary information."
                 android:fontFamily="@font/basementgrotesque"
                 android:layout_gravity="center"
-                android:textSize="10sp"
+                android:textSize="12sp"
                 android:textAlignment="center"
                 android:textColor="@color/white" />
 
@@ -65,7 +66,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center"
-            android:layout_marginBottom="10dp">
+            android:layout_marginBottom="50dp">
 
             <!-- Enter task title name - label-->
             <TextView
@@ -83,12 +84,52 @@
 
             <!-- Enter task title name - text-box -->
             <EditText
+                android:id="@+id/taskTitle"
                 android:layout_width="210dp"
                 android:layout_height="48dp"
-                android:backgroundTint="#a87d9b"
+                android:backgroundTint="#563240"
                 android:fontFamily="@font/basementgrotesque"
+                android:foregroundTint="#B58D8D"
+                android:hint="Enter task name"
+                android:selectAllOnFocus="true"
+                android:shadowColor="#1E1D1D"
+                android:backgroundTintMode="multiply"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <!-- Enter last name label -->
+            <TextView
+                android:id="@+id/text_surname"
+                android:layout_height="24dp"
+                android:layout_width="100dp"
+                android:text="Description"
+                android:textColor="@color/white"
+                android:layout_gravity="left"
+                android:layout_marginLeft="86dp"
+                android:background="@drawable/textbox_element"
+                android:paddingStart="10dp" />
+
+            <!-- Enter last name text-box -->
+            <EditText
+                android:id="@+id/edit_surname"
+                android:layout_height="95dp"
+                android:layout_width="300dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/pink_border"
+                android:hint="Specify the outline of your task"
+                android:textColor="@color/white"
+                android:textColorHint="@android:color/white"
                 android:textSize="14sp"
-                android:textColor="@color/white" />
+                android:paddingStart="20dp" />
 
         </LinearLayout>
 
@@ -96,7 +137,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:orientation="horizontal"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="22dp"
             android:gravity="center">
 
             <!-- Select Date Button -->
@@ -108,7 +149,7 @@
                 android:text="Mon, 10 April"
                 android:fontFamily="@font/basementgrotesque"
                 android:textColor="@color/white"
-                android:background="@drawable/alt_button_2"
+                android:background="@drawable/alt_button_3"
                 android:textSize="14sp"
                 android:textAllCaps="false"
                 android:layout_marginTop="30dp"
@@ -122,7 +163,7 @@
             android:layout_width="match_parent"
             android:layout_height="20dp"
             android:orientation="horizontal"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="22dp"
             android:gravity="center">
 
             <!-- Start Time - label -->
@@ -161,7 +202,7 @@
                 android:layout_gravity="center_horizontal"
                 android:text="17:00"
                 android:textColor="@color/white"
-                android:background="@drawable/alt_button_2"
+                android:background="@drawable/alt_button_3"
                 android:textSize="16sp"
                 android:textAllCaps="false"
                 android:layout_marginTop="30dp"
@@ -178,7 +219,7 @@
                 android:layout_gravity="center_horizontal"
                 android:text="19:00"
                 android:textColor="@color/white"
-                android:background="@drawable/alt_button_2"
+                android:background="@drawable/alt_button_3"
                 android:textSize="16sp"
                 android:textAllCaps="false"
                 android:layout_marginTop="30dp"
@@ -192,7 +233,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="110dp"
+            android:layout_height="60dp"
             android:orientation="horizontal"
             android:layout_marginTop="12dp"
             android:gravity="center">
@@ -203,7 +244,7 @@
                 android:layout_height="58dp"
                 android:hint="@string/select"
                 android:textColorHint="@color/white"
-                android:background="@drawable/alt_button_2"
+                android:background="@drawable/alt_button_3"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                 android:layout_gravity="center_horizontal">
 
@@ -212,7 +253,7 @@
                     android:layout_width="270dp"
                     android:layout_height="48dp"
                     android:inputType="none"
-                    android:background="#563240"
+                    android:background="#a87d9b"
                     android:textSize="14sp"
                     android:textColor="@color/white"
                     android:textColorHint="@color/white"
@@ -223,6 +264,29 @@
             </com.google.android.material.textfield.TextInputLayout>
 
         </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="12dp"
+        android:gravity="center">
+
+        <!-- Page Description -->
+        <TextView
+            android:id="@+id/btn_add_category"
+            android:layout_height="wrap_content"
+            android:layout_width="110dp"
+            android:text="add C̲a̲t̲e̲g̲o̲r̲y̲̲"
+            android:fontFamily="@font/basementgrotesque"
+            android:layout_gravity="center"
+            android:textSize="12sp"
+            android:textAlignment="center"
+            android:textColor="#ffbece" />
+
+    </LinearLayout>
+
 
 
         <LinearLayout
@@ -238,11 +302,12 @@
                 android:layout_height="55dp"
                 android:layout_gravity="center"
                 android:text="Create Task"
-                android:textSize="16sp"
-                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:textColor="#442C2E"
                 android:background="@drawable/small_rounded_button"
                 android:layout_marginLeft="15dp"
-                android:layout_marginTop="50dp" />
+                android:layout_marginTop="20dp" />
 
         </LinearLayout>
 

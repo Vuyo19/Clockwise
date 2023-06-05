@@ -145,11 +145,11 @@
                 android:layout_height="65dp"
                 android:layout_gravity="center"
                 android:text="Log Out"
+                android:textStyle="bold"
                 android:textColor="#442C2E"
                 android:id="@+id/btn_signup"
                 android:background="@drawable/rounded_button"
-                android:textSize="18sp"
-                android:textAllCaps="false"
+                android:textSize="16sp"
                 android:layout_marginTop="30dp"
                 android:layout_marginBottom="15dp"/>
         </LinearLayout>

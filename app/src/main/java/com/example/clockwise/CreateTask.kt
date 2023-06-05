@@ -25,6 +25,24 @@ class CreateTask : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.create_task)
 
+        // https://www.youtube.com/watch?v=jXSNobmB7u4&t=237s&ab_channel=FineGap
+        autoCompleteTextView = findViewById(R.id.auto_complete_text)
+        adapterItems = ArrayAdapter(this, R.layout.list_item, category)
+        autoCompleteTextView.setAdapter(adapterItems) // Add this line to set the adapter for AutoCompleteTextView
+
+        autoCompleteTextView.setOnItemClickListener { adapterView, view, i, l ->
+            val item = adapterView.getItemAtPosition(i).toString()
+            Toast.makeText(this@CreateTask, "Category: $item", Toast.LENGTH_SHORT).show()
+        }
+
+        // resizeImages();
+
+        // Perform the action when the link is clicked.
+        val intent = Intent(this, Signup::class.java)
+        startActivity(intent)
+
+
+        // https://www.youtube.com/watch?v=xacLtzjI-E8&ab_channel=TheCodingChain
         btnEndTime = findViewById(R.id.btn_end_time)
         btnStartTime = findViewById(R.id.btn_start_time)
         btnDate = findViewById(R.id.btn_date)
