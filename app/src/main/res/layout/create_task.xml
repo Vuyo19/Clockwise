@@ -88,7 +88,7 @@
 
                 <!-- Enter last name text-box -->
                 <EditText
-                    android:id="@+id/task_name"
+                    android:id="@+id/taskDescription"
                     android:layout_height="65dp"
                     android:layout_width="300dp"
                     android:layout_gravity="center_horizontal"
@@ -99,31 +99,7 @@
                     android:textSize="14sp"
                     android:paddingStart="20dp" />
 
-                <!-- Enter last name label -->
-                <TextView
-                    android:id="@+id/text_surname"
-                    android:layout_height="24dp"
-                    android:layout_width="100dp"
-                    android:text="Description"
-                    android:textColor="@color/white"
-                    android:layout_gravity="left"
-                    android:layout_marginLeft="86dp"
-                    android:background="@drawable/textbox_element"
-                    android:paddingStart="10dp"
-                    android:layout_marginTop="20dp"/>
 
-                <!-- Enter last name text-box -->
-                <EditText
-                    android:id="@+id/edit_surname"
-                    android:layout_height="65dp"
-                    android:layout_width="300dp"
-                    android:layout_gravity="center_horizontal"
-                    android:background="@drawable/pink_border"
-                    android:hint="Specify the outline of your task"
-                    android:textColor="@color/white"
-                    android:textColorHint="@android:color/white"
-                    android:textSize="14sp"
-                    android:paddingStart="20dp" />
 
                 <!-- Select Date Button -->
                 <androidx.appcompat.widget.AppCompatButton

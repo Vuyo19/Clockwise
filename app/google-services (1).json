@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "694010597907",
+    "firebase_url": "https://clockwise-befb7-default-rtdb.firebaseio.com",
+    "project_id": "clockwise-befb7",
+    "storage_bucket": "clockwise-befb7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:694010597907:android:d0b1e5f8d21c47c6e565e6",
+        "android_client_info": {
+          "package_name": "com.example.clockwise"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "694010597907-cd64rv5al40iqg2ac1ak5i9lhebfs0d1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.clockwise",
+            "certificate_hash": "9a19dcd2579a7fd129c8ecf538f2a46a99f9326f"
+          }
+        },
+        {
+          "client_id": "694010597907-l51lcgo6mss5ga0g41174ejdtgmo7606.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDw70ujggf7M0Q_WdC4jwrt14GrzfIbL1g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "694010597907-l51lcgo6mss5ga0g41174ejdtgmo7606.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
