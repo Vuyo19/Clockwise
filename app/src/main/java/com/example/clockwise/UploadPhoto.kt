@@ -1,20 +1,19 @@
- import android.content.Intent
+package com.example.clockwise
+
+import android.content.Intent
 import android.net.Uri
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
-import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_main.*
+import android.view.View
 
-class MainActivity : AppCompatActivity() {
+class UploadPhoto : AppCompatActivity() {
 
     private val REQUEST_IMAGE_CAPTURE = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.add_photo)
-
-        // Other code in your activity
-
+        setContentView(R.layout.upload_photo)
     }
 
     fun addPhoto(view: View) {
@@ -34,5 +33,4 @@ class MainActivity : AppCompatActivity() {
     }
 
     // Other functions and code in your activity
-
 }

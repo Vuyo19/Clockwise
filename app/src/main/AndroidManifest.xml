@@ -12,6 +12,9 @@
         android:theme="@style/Theme.Clockwise"
         tools:targetApi="31">
         <activity
+            android:name=".UploadPhoto"
+            android:exported="false" />
+        <activity
             android:name=".ListView_Layout"
             android:exported="false" />
         <activity
@@ -41,8 +44,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Login"></activity>
-        <activity android:name=".Signup"></activity>
+        <activity android:name=".Login" />
+        <activity android:name=".Signup" />
     </application>
 
 </manifest>
