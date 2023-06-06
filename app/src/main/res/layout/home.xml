@@ -66,6 +66,19 @@
             android:textColor="#442C2E"
             android:textStyle="bold" />
 
+        <!-- Create Task Button -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_view_tasks"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="100dp"
+            android:background="@drawable/small_rounded_button"
+            android:text="View Tasks"
+            android:textColor="#442C2E"
+            android:textStyle="bold" />
+
         <!-- android:layout_toEndOf="@id/icon_today" -->
 
 

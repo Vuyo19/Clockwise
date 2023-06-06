@@ -12,6 +12,10 @@
 #   public *;
 #}
 
+#-keepclassmembers class com.example.clockwise.Task {
+#    <init>();
+#}
+
 # Uncomment this to preserve the line number information for
 # debugging stack traces.
 #-keepattributes SourceFile,LineNumberTable

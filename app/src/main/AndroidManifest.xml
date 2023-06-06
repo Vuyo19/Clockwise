@@ -33,6 +33,9 @@
             android:name=".Hour_Goal"
             android:exported="false" />
         <activity
+            android:name=".TaskList"
+            android:exported="false" />
+        <activity
             android:name=".Intro"
             android:exported="true">
             <intent-filter>

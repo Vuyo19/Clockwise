@@ -3,16 +3,23 @@ package com.example.clockwise
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
+import android.content.ClipDescription
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Gravity
+import android.view.LayoutInflater
+import android.view.View
 import android.widget.*
 import androidx.appcompat.widget.AppCompatButton
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import java.util.*
+import java.util.UUID
+import org.json.JSONObject
+
 
 class CreateTask : AppCompatActivity() {
 
@@ -25,19 +32,15 @@ class CreateTask : AppCompatActivity() {
     private lateinit var autoCompleteTextView: AutoCompleteTextView
     private lateinit var adapterItems: ArrayAdapter<String>
 
-    // Checking.
 
+    // Checking.
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.create_task)
 
         val sharedPreference = getSharedPreferences("MY_SESSION", MODE_PRIVATE);
         val id = sharedPreference.getString("ID", "").toString();
-
-        val database = Firebase.database
-
-        // Creating a reference
-        val myTaskRef = database.getReference("Tasks")
 
 
         // https://www.youtube.com/watch?v=jXSNobmB7u4&t=237s&ab_channel=FineGap
@@ -95,24 +98,47 @@ class CreateTask : AppCompatActivity() {
             val text_category = findViewById<AutoCompleteTextView>(R.id.auto_complete_text)
             val text_category_final = text_category.text.toString()
 
-            // Generate a unique key
-            val uniqueKey = myTaskRef.push().key ?: ""
-
-            // Create a new child node with the unique key
-            val childRef = myTaskRef.child(id).child(text_category_final).child(uniqueKey)
-
-            // Creating an object to store the newly added task.
-            val tasked = Task(text_description_final, text_category_final, text_title_final, date_startime_final, date_endtime_final, date_chosen_final)
-            childRef.setValue(tasked);
-
-            /*
-            myTask.push();
-            myTask.child(id).child(text_category_final).setValue(tasked) // Adding the information into the Realtime Database.
-            */
+            // Inserting the information into the ParentNodeDatabase.
+            uploadtoFirebase(id, text_description_final, text_category_final , text_title_final, date_startime_final, date_endtime_final, date_chosen_final)
 
             // Making message
-            Toast.makeText(this, "New Task has been added!", Toast.LENGTH_SHORT).show()
+            // Toast.makeText(this, "New Task has been added!", Toast.LENGTH_SHORT).show()
+
+            val inflater: LayoutInflater = layoutInflater
+            val layout: View = inflater.inflate(R.layout.toast_custom_layout, null)
+
+            val toast = Toast(applicationContext)
+            toast.duration = Toast.LENGTH_SHORT
+            toast.view = layout
+
+            val toastText: TextView = layout.findViewById(R.id.toast_text)
+            // toastText.text = "New ID for the Task is: " + returnNewTaskKey() + "\n + Title: " + returnNewTitle()
+
+            toast.setGravity(Gravity.FILL, 0, 0) // Set the toast gravity to fill the screen
+            toast.show()
+
+            // Taking the user to the homepage.
+            val intent = Intent(this@CreateTask, TaskList::class.java)
+            startActivity(intent)
+
         }
+
+
+    }
+
+    fun uploadtoFirebase(id: String, description: String, category: String, title: String, startTime: String, endTime: String, normalDate: String) {
+
+        val database = Firebase.database
+        // Creating a reference
+        val myTaskRef = database.getReference("Tasks")
+
+        // Generate a unique key
+        val uniqueKey = myTaskRef.push().key ?: ""
+
+        // Create a new child node with the unique key
+        val childRef = myTaskRef.child(id).child(category).child(uniqueKey)
+        val tasked = Task(description, category, title, startTime, endTime, normalDate)
+        childRef.setValue(tasked)
 
 
     }
@@ -161,6 +187,18 @@ class CreateTask : AppCompatActivity() {
         }, year, month, date)
 
         datePickerDialog.show()
+    }
+
+    data class TaskNode(
+        val category: String,
+        val description: String,
+        val normalDate: String,
+        val startTime: String,
+        val endTime: String,
+        val title: String
+    ) {
+        // Default (no-argument) constructor
+        constructor() : this("", "", "", "", "", "")
     }
 
 }
