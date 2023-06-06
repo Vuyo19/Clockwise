@@ -67,7 +67,7 @@
                 <ListView
                     android:layout_width="match_parent"
                     android:layout_height="900dp"
-                    android:background="#ffb8cc"
+                    android:background="#815f77"
                     android:cacheColorHint="#FEFEFE"
                     android:divider="@android:color/darker_gray"
                     android:dividerHeight="1dp"
