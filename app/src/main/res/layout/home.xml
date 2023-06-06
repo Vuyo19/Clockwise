@@ -40,6 +40,8 @@
             android:layout_marginEnd="20dp" />
 
         <!-- Calendar Icon -->
+
+        <!--
         <ImageView
             android:id="@+id/icon_today"
             android:layout_width="34dp"
@@ -50,7 +52,7 @@
             android:layout_marginTop="6dp"
             android:src="@drawable/baseline_calendar_today_24"
             android:textColor="@color/white"
-            />
+            /> -->
 
         <!-- Create Task Button -->
         <androidx.appcompat.widget.AppCompatButton
@@ -59,11 +61,12 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="20dp"
-            android:layout_toEndOf="@id/icon_today"
             android:background="@drawable/small_rounded_button"
             android:text="Create Task"
             android:textColor="#442C2E"
             android:textStyle="bold" />
+
+        <!-- android:layout_toEndOf="@id/icon_today" -->
 
 
     </RelativeLayout>
@@ -77,8 +80,7 @@
         android:layout_marginTop="40dp"
         android:layout_marginStart="20dp">
 
-        <!-- The Current day-->
-        <!-- When pressed - opens up calendar interface-->
+        <!--
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/date_button"
             android:layout_width="90dp"
@@ -89,8 +91,7 @@
             android:textSize="18sp"
             android:background="@drawable/date_view_button" />
 
-        <!-- The Current day + 1-->
-        <!-- When pressed - opens up calendar interface-->
+
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/date_button2"
             android:layout_width="90dp"
@@ -103,8 +104,8 @@
             android:textColor="@color/white"
             android:textSize="18sp" />
 
-        <!-- The Current day + 2-->
-        <!-- When pressed - opens up calendar interface-->
+
+
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/date_button3"
             android:layout_width="90dp"
@@ -115,7 +116,7 @@
             android:background="@drawable/date_view_button"
             android:text="13\nWED"
             android:textColor="@color/white"
-            android:textSize="18sp" />
+            android:textSize="18sp" /> -->
 
 
 
@@ -140,8 +141,7 @@
     </RelativeLayout>
 
 
-
-
+    <!--
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav"
         android:layout_width="match_parent"
@@ -150,9 +150,7 @@
         app:itemTextColor="@drawable/menu_items_attr"
         app:itemIconTint="@drawable/menu_items_attr"
         android:background="@drawable/menu_back_drop"
-        android:layout_height="wrap_content" />
-
-
+        android:layout_height="wrap_content" /> -->
 
 
 

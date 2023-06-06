@@ -81,7 +81,7 @@ class Login : AppCompatActivity() {
             Toast.makeText(this, "User exists!", Toast.LENGTH_SHORT).show()
 
             // Taking the user to the homepage.
-            val intent = Intent(this@Login, GetStarted::class.java)
+            val intent = Intent(this@Login, Home::class.java)
             startActivity(intent)
 
         } else {

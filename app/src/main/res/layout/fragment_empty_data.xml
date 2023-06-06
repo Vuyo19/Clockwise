@@ -6,15 +6,17 @@
     tools:context=".EmptyData"
     android:background="@android:color/transparent">
 
+
     <!-- TODO: Update blank fragment layout -->
 
+    <!--
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="850dp"
         android:orientation="vertical"
         android:gravity="center">
 
-        <!-- Alternative Create Task Button-->
+
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/add_task"
             android:layout_width="70dp"
@@ -30,7 +32,7 @@
             android:layout_centerVertical="true" />
 
 
-        <!-- Application Visual Asset -->
+
         <ImageView
             android:id="@+id/quickInfo"
             android:layout_width="400dp"
@@ -40,6 +42,6 @@
             android:layout_gravity="center"
             android:src="@drawable/empty_data_visual" />
 
-    </LinearLayout>
+    </LinearLayout> -->
 
 </FrameLayout>

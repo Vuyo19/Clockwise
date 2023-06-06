@@ -21,6 +21,7 @@ class Home : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.home)
 
+        /*
         nav = findViewById(R.id.nav)
 
         nav.setOnItemSelectedListener { item ->
@@ -32,7 +33,7 @@ class Home : AppCompatActivity() {
                 else -> {}
             }
             true
-        }
+        } */
 
        // Directing the user to the create task page if button clicked.
         button_create_task = findViewById<Button>(R.id.btn_create_task);

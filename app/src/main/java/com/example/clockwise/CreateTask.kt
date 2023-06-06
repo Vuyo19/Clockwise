@@ -37,7 +37,7 @@ class CreateTask : AppCompatActivity() {
         val database = Firebase.database
 
         // Creating a reference
-        val myTask = database.getReference("Tasks")
+        val myTaskRef = database.getReference("Tasks")
 
 
         // https://www.youtube.com/watch?v=jXSNobmB7u4&t=237s&ab_channel=FineGap
@@ -72,7 +72,7 @@ class CreateTask : AppCompatActivity() {
             // Taking action once the button has been clicked.
             // Get the chosen title.
 
-            val text_title = findViewById<TextView>(R.id.taskTitle)
+            val text_title = findViewById<TextView>(R.id.editTitle)
             val text_title_final = text_title.text.toString()
 
             // Get the chosen description
@@ -95,9 +95,20 @@ class CreateTask : AppCompatActivity() {
             val text_category = findViewById<AutoCompleteTextView>(R.id.auto_complete_text)
             val text_category_final = text_category.text.toString()
 
+            // Generate a unique key
+            val uniqueKey = myTaskRef.push().key ?: ""
+
+            // Create a new child node with the unique key
+            val childRef = myTaskRef.child(id).child(text_category_final).child(uniqueKey)
+
             // Creating an object to store the newly added task.
             val tasked = Task(text_description_final, text_category_final, text_title_final, date_startime_final, date_endtime_final, date_chosen_final)
-            myTask.child(id).setValue(tasked) // Adding the information into the Realtime Database.
+            childRef.setValue(tasked);
+
+            /*
+            myTask.push();
+            myTask.child(id).child(text_category_final).setValue(tasked) // Adding the information into the Realtime Database.
+            */
 
             // Making message
             Toast.makeText(this, "New Task has been added!", Toast.LENGTH_SHORT).show()

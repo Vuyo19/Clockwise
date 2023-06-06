@@ -15,6 +15,24 @@
             android:name=".ListView_Layout"
             android:exported="false" />
         <activity
+            android:name=".Home"
+            android:exported="false" />
+        <activity
+            android:name=".CreateTask"
+            android:exported="false" />
+        <activity
+            android:name=".GetStarted"
+            android:exported="false" />
+        <activity
+            android:name=".Display_TotalHours"
+            android:exported="false" />
+        <activity
+            android:name=".Profile"
+            android:exported="false" />
+        <activity
+            android:name=".Hour_Goal"
+            android:exported="false" />
+        <activity
             android:name=".Intro"
             android:exported="true">
             <intent-filter>
