@@ -25,7 +25,7 @@ class CreateTask : AppCompatActivity() {
     private lateinit var autoCompleteTextView: AutoCompleteTextView
     private lateinit var adapterItems: ArrayAdapter<String>
 
-
+    // Checking.
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
