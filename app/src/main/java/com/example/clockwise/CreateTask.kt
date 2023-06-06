@@ -17,7 +17,7 @@ class CreateTask : AppCompatActivity() {
     private lateinit var btnStartTime: Button
     private lateinit var btnDate: Button
 
-    val category = arrayOf("Category 1", "Category 2", "Category 3", "Category 4", "Category 5")
+    // val category = arrayOf("Category 1", "Category 2", "Category 3", "Category 4", "Category 5")
     private lateinit var autoCompleteTextView: AutoCompleteTextView
     private lateinit var adapterItems: ArrayAdapter<String>
 
