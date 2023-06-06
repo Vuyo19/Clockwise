@@ -35,8 +35,6 @@ class CreateTask : AppCompatActivity() {
             Toast.makeText(this@CreateTask, "Category: $item", Toast.LENGTH_SHORT).show()
         }
 
-        // resizeImages();
-
         // Perform the action when the link is clicked.
         val intent = Intent(this, Signup::class.java)
         startActivity(intent)
