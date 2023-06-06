@@ -73,43 +73,20 @@
                 android:orientation="vertical"
                 android:gravity="center">
 
-                <!-- Enter last name text-box -->
+                <!-- Enter last name label -->
                 <TextView
-                    android:id="@+id/title"
-                    android:layout_width="100dp"
+                    android:id="@+id/taskTitle"
                     android:layout_height="24dp"
-                    android:layout_gravity="left"
-                    android:layout_marginLeft="86dp"
-                    android:background="@drawable/textbox_element"
-                    android:paddingStart="10dp"
-                    android:text="Title"
-                    android:textColor="@color/white" />
-
-                <EditText
-                    android:id="@+id/editTitle"
-                    android:layout_height="65dp"
-                    android:layout_width="300dp"
-                    android:layout_gravity="center_horizontal"
-                    android:background="@drawable/pink_border"
-                    android:hint="Specify the outline of your task"
+                    android:layout_width="100dp"
+                    android:text="Task Title"
                     android:textColor="@color/white"
-                    android:textColorHint="@android:color/white"
-                    android:textSize="14sp"
-                    android:paddingStart="20dp" />
-
-                <!-- Enter last name text-box -->
-                <TextView
-                    android:id="@+id/descriptionTitle"
-                    android:layout_width="100dp"
-                    android:layout_height="24dp"
                     android:layout_gravity="left"
                     android:layout_marginLeft="86dp"
-                    android:layout_marginTop="20dp"
                     android:background="@drawable/textbox_element"
                     android:paddingStart="10dp"
-                    android:text="Description"
-                    android:textColor="@color/white" />
+                    android:layout_marginTop="60dp"/>
 
+                <!-- Enter last name text-box -->
                 <EditText
                     android:id="@+id/taskDescription"
                     android:layout_height="65dp"
@@ -147,8 +124,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:id="@+id/time_labels"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp">
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="10dp">
 
                     <!-- Start Time - label -->
                     <TextView
@@ -174,7 +151,7 @@
 
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="63dp">
+                    android:layout_height="match_parent">
 
                     <!-- Start Time - button that pops up clock for user to select a time -->
                     <androidx.appcompat.widget.AppCompatButton
@@ -182,16 +159,16 @@
                         android:layout_width="120dp"
                         android:layout_height="48dp"
                         android:layout_gravity="center_horizontal"
+                        android:text="17:00"
+                        android:textColor="@color/white"
+                        android:background="@drawable/alt_button_3"
+                        android:textSize="16sp"
+                        android:textAllCaps="false"
                         android:layout_marginTop="30dp"
                         android:layout_marginBottom="15dp"
-                        android:background="@drawable/alt_button_3"
                         android:drawableRight="@drawable/baseline_access_time_24"
-                        android:paddingStart="16dp"
                         android:paddingEnd="16dp"
-                        android:text="17:00"
-                        android:textAllCaps="false"
-                        android:textColor="@color/white"
-                        android:textSize="16sp" />
+                        android:paddingStart="16dp" />
 
                     <!-- End Time - button that pops up clock for user to select a time -->
                     <androidx.appcompat.widget.AppCompatButton
@@ -199,17 +176,17 @@
                         android:layout_width="120dp"
                         android:layout_height="48dp"
                         android:layout_gravity="center_horizontal"
-                        android:layout_marginLeft="50dp"
+                        android:text="19:00"
+                        android:textColor="@color/white"
+                        android:background="@drawable/alt_button_3"
+                        android:textSize="16sp"
+                        android:textAllCaps="false"
                         android:layout_marginTop="30dp"
                         android:layout_marginBottom="15dp"
-                        android:background="@drawable/alt_button_3"
+                        android:layout_marginLeft="50dp"
                         android:drawableRight="@drawable/baseline_access_time_24"
-                        android:paddingStart="16dp"
                         android:paddingEnd="16dp"
-                        android:text="19:00"
-                        android:textAllCaps="false"
-                        android:textColor="@color/white"
-                        android:textSize="16sp" />
+                        android:paddingStart="16dp" />
 
                 </LinearLayout>
 
@@ -250,49 +227,38 @@
                     android:scaleType="fitCenter"
                     android:contentDescription="Add New Category Button"/>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    >
+                <!-- Add Photo Button -->
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_addPhoto"
+                    android:layout_width="290dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Add Photo"
+                    android:fontFamily="@font/basementgrotesque"
+                    android:textColor="@color/white"
+                    android:background="@drawable/alt_button_3"
+                    android:textSize="14sp"
+                    android:textAllCaps="false"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="15dp"
+                    android:drawableRight="@drawable/baseline_add_photo_alternate_24"
+                    android:paddingEnd="16dp"
+                    android:paddingStart="16dp" />
 
-                    <!-- Add Photo Button -->
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/btn_addPhoto"
-                        android:layout_width="150dp"
-                        android:layout_height="48dp"
-                        android:layout_gravity="center_horizontal"
-                        android:text="Add Photo"
-                        android:fontFamily="@font/basementgrotesque"
-                        android:textColor="@color/white"
-                        android:background="@drawable/alt_button_3"
-                        android:textSize="14sp"
-                        android:textAllCaps="false"
-                        android:layout_marginTop="30dp"
-                        android:layout_marginBottom="15dp"
-                        android:drawableRight="@drawable/baseline_add_photo_alternate_24"
-                        android:paddingEnd="16dp"
-                        android:paddingStart="16dp" />
-
-                    <!-- Create Task Button -->
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/Btn_saveHrs"
-                        android:layout_width="180dp"
-                        android:layout_height="55dp"
-                        android:layout_gravity="center"
-                        android:text="Create Task"
-                        android:textStyle="bold"
-                        android:textSize="15sp"
-                        android:textColor="#442C2E"
-                        android:background="@drawable/small_rounded_button"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginBottom="40dp"/>
-
-
-                </LinearLayout>
-
-
+                <!-- Create Task Button -->
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/Btn_saveHrs"
+                    android:layout_width="250dp"
+                    android:layout_height="55dp"
+                    android:layout_gravity="center"
+                    android:text="Create Task"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:textColor="#442C2E"
+                    android:background="@drawable/small_rounded_button"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginBottom="40dp"/>
             </LinearLayout>
 
         </ScrollView>

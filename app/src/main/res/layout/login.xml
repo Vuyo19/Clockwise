@@ -205,21 +205,19 @@
             android:orientation="vertical">
 
             <!-- Return Back to previous page Button -->
+
             <androidx.appcompat.widget.AppCompatButton
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:text="Back"
-                android:textSize="16sp"
-                android:textColor="@color/white"
                 android:id="@+id/btn_back_login"
-                android:background="@drawable/small_rounded_button"
+                android:layout_width="55dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/baseline_arrow_back"
+                android:contentDescription="Back Button"
+                android:layout_marginTop="36dp"
                 android:layout_marginLeft="15dp"
-                android:drawableLeft="@drawable/baseline_arrow_back"
-                android:layout_marginTop="25dp"
+                android:background="@drawable/alt_back_button"
+                android:drawableStart="@drawable/baseline_arrow_back_24"
                 android:paddingStart="18dp"
-                android:paddingEnd="16dp"
-                android:layout_marginStart="15dp" />
+                android:layout_marginStart="20dp" />
         </LinearLayout>
 
 
