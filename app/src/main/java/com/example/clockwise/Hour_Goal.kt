@@ -61,7 +61,6 @@ class Hour_Goal : AppCompatActivity(){
             //SAVING TO DATABASE
             uploadtoFirebase(id, txtMax, txtMin)}
         }
-
     fun uploadtoFirebase(id: String, txtMax: String, txtMin: String)
     {
         //database reference
@@ -81,7 +80,6 @@ class Hour_Goal : AppCompatActivity(){
 
         //showing success message
         Toast.makeText(this, "Saved Successfully", Toast.LENGTH_SHORT).show()
-
     }
 }
 
