@@ -17,6 +17,8 @@ class Home : AppCompatActivity() {
     private lateinit var button_create_task: Button
     private lateinit var button_view_task: Button
     private lateinit var button_view_total_hours: Button
+    private lateinit var button_set_daily_goal: Button
+
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,6 +43,8 @@ class Home : AppCompatActivity() {
         button_create_task = findViewById<Button>(R.id.btn_create_task);
         button_view_task = findViewById<Button>(R.id.btn_view_tasks)
         button_view_total_hours = findViewById<Button>(R.id.btn_view_total_hours)
+        button_set_daily_goal = findViewById<Button>(R.id.btn_set_goal)
+
 
         button_create_task.setOnClickListener {
             val intent = Intent(this@Home, CreateTask::class.java)
@@ -54,6 +58,11 @@ class Home : AppCompatActivity() {
 
         button_view_total_hours.setOnClickListener {
             val intent = Intent(this@Home, Display_TotalHours::class.java)
+            startActivity(intent)
+        }
+
+        button_set_daily_goal.setOnClickListener {
+            val intent = Intent(this@Home, Hour_Goal::class.java)
             startActivity(intent)
         }
 

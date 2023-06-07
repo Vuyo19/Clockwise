@@ -34,7 +34,6 @@
                 android:paddingStart="18dp"
                 android:layout_marginStart="15dp" />
 
-
             <!-- Page Heading -->
             <TextView
                 android:id="@+id/Txt_dateRange"

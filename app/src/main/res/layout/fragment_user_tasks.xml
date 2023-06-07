@@ -29,58 +29,98 @@
                 android:id="@+id/text_register"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:text="Tasks"
+                android:text="Dashboard"
                 android:fontFamily="@font/basementgrotesque"
                 android:layout_gravity="center"
                 android:textSize="20sp"
-                android:textColor="@color/white"
-                android:layout_marginRight="40dp"/>
+                android:textColor="@color/white" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:layout_width="130dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:text="FILTER"
-                android:textSize="16sp"
-                android:textColor="@color/white"
-                android:id="@+id/btn_back_login"
-                android:background="@drawable/small_rounded_button"
-                android:drawableRight="@drawable/baseline_manage_search_24"
-                android:paddingStart="18dp"
-                android:paddingEnd="16dp" />
 
         </LinearLayout>
 
-        <ScrollView
-            android:layout_width="390dp"
-            android:layout_height="660dp">
 
 
             <LinearLayout
-                android:layout_width="390dp"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:orientation="horizontal"
                 android:gravity="center_horizontal">
 
 
-                <!-- change height to "wrap_content of default" -->
-                <ListView
-                    android:layout_width="match_parent"
-                    android:layout_height="900dp"
-                    android:background="#815f77"
-                    android:cacheColorHint="#FEFEFE"
-                    android:divider="@android:color/darker_gray"
-                    android:dividerHeight="1dp"
-                    android:textColor="@android:color/white">
 
-                </ListView>
+                <!-- Create Task Button -->
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_create_task"
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="30dp"
+                    android:background="@drawable/purple_button"
+                    android:text="Create Task"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    android:drawableBottom="@drawable/baseline_create_task"
+                    android:drawablePadding="-20dp"
+                    android:paddingBottom="20dp" />
+
+
+
+                <!-- Total Hours Button -->
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_view_tasks"
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    android:layout_marginTop="50dp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/purple_button"
+                    android:text="My Tasks"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    android:drawableBottom="@drawable/baseline_my_tasks"
+                    android:drawablePadding="-20dp"
+                    android:paddingBottom="20dp"/>
+
 
             </LinearLayout>
 
-        </ScrollView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal">
 
 
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_set_goal"
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    android:layout_marginRight="30dp"
 
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/purple_button"
+                    android:text="SET GOAL"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    android:drawableBottom="@drawable/baseline_set_goal"
+                    android:drawablePadding="-20dp"
+                    android:paddingBottom="20dp"/>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_view_total_hours"
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/purple_button"
+                    android:text="Total Hours"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    android:drawableBottom="@drawable/baseline_summarize_24"
+                    android:drawablePadding="-20dp"
+                    android:paddingBottom="20dp"/>
+
+            </LinearLayout>
 
 
     </LinearLayout>
