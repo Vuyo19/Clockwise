@@ -62,6 +62,7 @@ public class Task( f_description: String, f_category: String, f_title: String, f
             field = value
         }
 
+
     // Creating a constructor
     init {
         description = f_description

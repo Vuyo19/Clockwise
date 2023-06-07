@@ -34,10 +34,17 @@ class TaskList : AppCompatActivity() {
     private lateinit var endDate : String
 
     val TaskNode = HashMap<String, Any>()
+
+    var fbCategoryList = ArrayList<String>()
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.tasks_lists)
+
+        val sharedPreference = getSharedPreferences("MY_SESSION", MODE_PRIVATE);
+        val id = sharedPreference.getString("ID", "").toString();
 
         //creating listener for selecting the date range
         findViewById<TextView>(R.id.Btn_selectDate).setOnClickListener{
@@ -61,9 +68,9 @@ class TaskList : AppCompatActivity() {
             }
         }
 
-        populateTasks()
+        populateTasksStarter(id)
     }
-    fun populateTasks() {
+    fun populateTasksStarter(id: String) {
 
         val taskList: MutableList<Task> = mutableListOf()
 
@@ -72,11 +79,13 @@ class TaskList : AppCompatActivity() {
         // Creating a reference
         val myTaskRef = database.getReference("Tasks")
 
-        val tasksRef = myTaskRef.child("4").child("Category 1")
+        // Retreiving the category array.
+        retrieveCategoryArray(id)
 
         val parentLinearLayout: LinearLayout = findViewById(R.id.parentLayoutTask) // Replace with the actual ID of your parent layout
 
-        val childRef = myTaskRef.child("4").child("Category 1")
+        // Loading the default category.
+        val childRef = myTaskRef.child(id).child(fbCategoryList[0])
 
         childRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
@@ -109,6 +118,36 @@ class TaskList : AppCompatActivity() {
             override fun onCancelled(databaseError: DatabaseError) {
                 // Handle any errors that occur during the retrieval process
                 // ...
+            }
+        })
+
+    }
+
+    // function to retrieve the category.
+    fun retrieveCategoryArray(id: String) {
+
+        val database = Firebase.database
+        // Creating a reference
+        val myTaskRef = database.getReference("Tasks")
+
+        val childRef = myTaskRef.child(id).child("UserCategory")
+
+        childRef.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                fbCategoryList.clear() // Clear the ArrayList before adding new values
+
+                for (categorySnapshot in dataSnapshot.children) {
+                    val category = categorySnapshot.getValue(String::class.java)
+                    category?.let {
+                        fbCategoryList.add(it)
+                    }
+                }
+
+                // Use the userCategoryList as needed here
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                // Handle error
             }
         })
 

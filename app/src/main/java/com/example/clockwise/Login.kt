@@ -13,6 +13,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import android.content.Context
+import android.content.SharedPreferences
 
 
 // For the login page.
@@ -80,6 +81,9 @@ class Login : AppCompatActivity() {
         if (userExists) {
             Toast.makeText(this, "User exists!", Toast.LENGTH_SHORT).show()
 
+            // Creating the session for the user by storing the ID.
+            createSession(emailCheck)
+
             // Taking the user to the homepage.
             val intent = Intent(this@Login, Home::class.java)
             startActivity(intent)
@@ -87,6 +91,19 @@ class Login : AppCompatActivity() {
         } else {
             Toast.makeText(this, "User does not exist!", Toast.LENGTH_SHORT).show()
         }
+    }
+
+    fun createSession(emailCheck: String) {
+        val sharedPreference: SharedPreferences = getSharedPreferences("MY_SESSION", Context.MODE_PRIVATE)
+
+        val db = DBHelper(this, null)
+
+        val id = db.returnID(emailCheck)
+
+        val editor: SharedPreferences.Editor = sharedPreference.edit()
+
+        editor.putString("ID", id)
+
     }
 }
 

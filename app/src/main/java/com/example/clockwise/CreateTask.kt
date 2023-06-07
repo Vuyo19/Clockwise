@@ -1,10 +1,12 @@
 package com.example.clockwise
 
 import android.annotation.SuppressLint
+import android.app.AlertDialog
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.content.ClipDescription
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -19,7 +21,11 @@ import com.google.firebase.ktx.Firebase
 import java.util.*
 import java.util.UUID
 import org.json.JSONObject
-
+import java.util.ArrayList
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 class CreateTask : AppCompatActivity() {
 
@@ -27,25 +33,37 @@ class CreateTask : AppCompatActivity() {
     private lateinit var btnStartTime: Button
     private lateinit var btnDate: Button
     private lateinit var btnSubmitTask: Button
+    private lateinit var categoryCaptureTarget: String
+    private lateinit var btnCategoryAdd: ImageButton
 
-    val category = arrayOf("Category 1", "Category 2", "Category 3", "Category 4", "Category 5")
     private lateinit var autoCompleteTextView: AutoCompleteTextView
     private lateinit var adapterItems: ArrayAdapter<String>
 
+    val database = Firebase.database
+    // Creating a reference
+    val myTaskRef = database.getReference("Tasks")
+
+    var fbCategoryList = ArrayList<String>()
+
+    val sharedPreference = getSharedPreferences("MY_SESSION", MODE_PRIVATE);
+    val id = sharedPreference.getString("ID", "").toString();
+
+    val childRef = myTaskRef.child(id).child("UserCategory") // Connecting to the node to insert the category.
 
     // Checking.
+    @SuppressLint("SuspiciousIndentation")
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.create_task)
 
-        val sharedPreference = getSharedPreferences("MY_SESSION", MODE_PRIVATE);
-        val id = sharedPreference.getString("ID", "").toString();
+        // Retrieve the categories from the realtime database.
 
+        retrieveCategoryArray(id)
 
         // https://www.youtube.com/watch?v=jXSNobmB7u4&t=237s&ab_channel=FineGap
         autoCompleteTextView = findViewById(R.id.auto_complete_text)
-        adapterItems = ArrayAdapter(this, R.layout.list_item, category)
+        adapterItems = ArrayAdapter(this, R.layout.list_item, fbCategoryList) // fbCategoryList
         autoCompleteTextView.setAdapter(adapterItems) // Add this line to set the adapter for AutoCompleteTextView
 
         autoCompleteTextView.setOnItemClickListener { adapterView, view, i, l ->
@@ -58,6 +76,7 @@ class CreateTask : AppCompatActivity() {
         btnStartTime = findViewById(R.id.btn_start_time)
         btnDate = findViewById(R.id.btn_date)
         btnSubmitTask = findViewById(R.id.Btn_saveHrs)
+        btnCategoryAdd = findViewById(R.id.btn_add_category)
 
         btnStartTime.setOnClickListener {
             setStartTime()
@@ -69,6 +88,10 @@ class CreateTask : AppCompatActivity() {
 
         btnDate.setOnClickListener {
             setDate()
+        }
+
+        btnCategoryAdd.setOnClickListener {
+            addCategory() // Adding the category entered.
         }
 
         btnSubmitTask.setOnClickListener {
@@ -99,7 +122,12 @@ class CreateTask : AppCompatActivity() {
             val text_category_final = text_category.text.toString()
 
             // Inserting the information into the ParentNodeDatabase.
-            uploadtoFirebase(id, text_description_final, text_category_final , text_title_final, date_startime_final, date_endtime_final, date_chosen_final)
+
+                if (categoryCaptureTarget != null) {
+                    uploadtoFirebase(id, text_description_final, categoryCaptureTarget , text_title_final, date_startime_final, date_endtime_final, date_chosen_final)
+                } else {
+                    uploadtoFirebase(id, text_description_final, text_category_final , text_title_final, date_startime_final, date_endtime_final, date_chosen_final)
+                }
 
             // Making message
             Toast.makeText(this, "New Task has been added!", Toast.LENGTH_SHORT).show()
@@ -124,6 +152,35 @@ class CreateTask : AppCompatActivity() {
         }
 
     }
+
+    fun retrieveCategoryArray(id: String) {
+
+        val database = Firebase.database
+        // Creating a reference
+        val myTaskRef = database.getReference("Tasks")
+
+        val childRef = myTaskRef.child(id).child("UserCategory")
+
+        childRef.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                fbCategoryList.clear() // Clear the ArrayList before adding new values
+
+                for (categorySnapshot in dataSnapshot.children) {
+                    val category = categorySnapshot.getValue(String::class.java)
+                    category?.let {
+                        fbCategoryList.add(it)
+                    }
+                }
+
+                // Use the userCategoryList as needed here
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                // Handle error
+            }
+        })
+
+    }
     fun uploadtoFirebase(id: String, description: String, category: String, title: String, startTime: String, endTime: String, normalDate: String) {
 
         val database = Firebase.database
@@ -138,7 +195,18 @@ class CreateTask : AppCompatActivity() {
         val tasked = Task(description, category, title, startTime, endTime, normalDate)
         childRef.setValue(tasked)
 
+        if (categoryCaptureTarget != null) {
+            val catRef = myTaskRef.child(id).child("UserCategory")
+            val catArray = ArrayList<String>()
+            catArray.add(categoryCaptureTarget)
+            catRef.setValue(catArray)
+        }
     }
+
+    fun getExistingArrays() {
+
+    }
+
     private fun setStartTime() {
         // Creating local variables to store the selected values
         val calendar = Calendar.getInstance()
@@ -192,6 +260,29 @@ class CreateTask : AppCompatActivity() {
         // Default (no-argument) constructor
         constructor() : this("", "", "", "", "", "")
     }
+
+    fun addCategory() {
+        val categoryEditText = EditText(this)
+
+        val dialog = AlertDialog.Builder(this)
+            .setTitle("Add Category")
+            .setView(categoryEditText)
+            .setPositiveButton("Add") { dialogInterface: DialogInterface, _: Int ->
+                categoryCaptureTarget = categoryEditText.text.toString()
+                // Save the category to data model or perform any necessary actions
+                // Update the UI to indicate the category was added
+                dialogInterface.dismiss()
+            }
+
+            .setNegativeButton("Cancel") { dialogInterface: DialogInterface, _: Int ->
+                dialogInterface.dismiss()
+            }
+            .create()
+
+        dialog.show()
+
+    }
+
 }
 
 

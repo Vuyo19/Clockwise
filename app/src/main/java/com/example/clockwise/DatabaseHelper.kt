@@ -3,6 +3,7 @@ package com.example.clockwise
 import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.content.Context
+import android.content.SharedPreferences
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
@@ -97,11 +98,33 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
 
             if(enteredPasswordHash == databaseHashPassword) {
                 validUser = true
+
             }
         }
 
 
         return validUser
+    }
+
+    @SuppressLint("Range")
+    fun returnID(email: String): String {
+        val db = this.readableDatabase
+        var capturedID = ""
+
+        // Creating an object for the database process.
+
+        // below code returns a cursor to
+        // read data from the database
+        val rowExists = "SELECT Id FROM " + TABLE_NAME + " WHERE Email = ?"
+        val selectionArgs = arrayOf(email)
+        val cursor = db.rawQuery(rowExists, selectionArgs)
+
+        if(cursor.moveToFirst()) {
+            capturedID = cursor.getString(cursor.getColumnIndex("Id")).toString();
+        }
+
+        return capturedID
+
     }
 
     companion object{
