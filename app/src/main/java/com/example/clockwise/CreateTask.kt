@@ -102,7 +102,7 @@ class CreateTask : AppCompatActivity() {
             uploadtoFirebase(id, text_description_final, text_category_final , text_title_final, date_startime_final, date_endtime_final, date_chosen_final)
 
             // Making message
-            // Toast.makeText(this, "New Task has been added!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "New Task has been added!", Toast.LENGTH_SHORT).show()
 
             val inflater: LayoutInflater = layoutInflater
             val layout: View = inflater.inflate(R.layout.toast_custom_layout, null)
@@ -123,9 +123,7 @@ class CreateTask : AppCompatActivity() {
 
         }
 
-
     }
-
     fun uploadtoFirebase(id: String, description: String, category: String, title: String, startTime: String, endTime: String, normalDate: String) {
 
         val database = Firebase.database
@@ -140,9 +138,7 @@ class CreateTask : AppCompatActivity() {
         val tasked = Task(description, category, title, startTime, endTime, normalDate)
         childRef.setValue(tasked)
 
-
     }
-
     private fun setStartTime() {
         // Creating local variables to store the selected values
         val calendar = Calendar.getInstance()
@@ -157,7 +153,6 @@ class CreateTask : AppCompatActivity() {
 
         timePickerDialog.show()
     }
-
     private fun setEndTime() {
         // Creating local variables to store the selected values
         val calendar = Calendar.getInstance()
@@ -172,8 +167,6 @@ class CreateTask : AppCompatActivity() {
 
         timePickerDialog.show()
     }
-
-
     private fun setDate() {
         // Creating local variables to store the selected values
         val calendar = Calendar.getInstance()
@@ -188,7 +181,6 @@ class CreateTask : AppCompatActivity() {
 
         datePickerDialog.show()
     }
-
     data class TaskNode(
         val category: String,
         val description: String,
@@ -200,7 +192,6 @@ class CreateTask : AppCompatActivity() {
         // Default (no-argument) constructor
         constructor() : this("", "", "", "", "", "")
     }
-
 }
 
 

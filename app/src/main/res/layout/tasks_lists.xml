@@ -11,5 +11,10 @@
         >
 
 
+        <Button
+            android:id="@+id/Btn_selectDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Choose a Date Range" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

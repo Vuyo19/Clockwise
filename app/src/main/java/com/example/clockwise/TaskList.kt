@@ -8,15 +8,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.*
 import androidx.cardview.widget.CardView
+import androidx.core.util.Pair
+import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.firebase.FirebaseOptions
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
-import java.util.HashMap
 import org.json.JSONObject
-
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 // Layout for viewing the current tasks.
@@ -25,19 +27,42 @@ class TaskList : AppCompatActivity() {
     // Finally add the User information inside the Task.
     val ParentNodeDatabase = LocalRealTimeDatabase.TaskNode
 
+    //storing start date
+    private lateinit var startDate : String
+
+    //storing end date
+    private lateinit var endDate : String
 
     val TaskNode = HashMap<String, Any>()
-
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.tasks_lists)
 
+        //creating listener for selecting the date range
+        findViewById<TextView>(R.id.Btn_selectDate).setOnClickListener{
+            val dateRange = MaterialDatePicker.Builder.dateRangePicker()
+                .setTitleText("Please Select").setSelection(
+                    Pair(
+                        MaterialDatePicker.thisMonthInUtcMilliseconds(),
+                        MaterialDatePicker.todayInUtcMilliseconds())
+                ).build()
+
+            dateRange.show(supportFragmentManager, "dateRange_picker")
+
+            dateRange.addOnPositiveButtonClickListener {
+                val dateFormatting = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+
+                //saving start date
+                startDate = "${dateFormatting.format(it.first)}"
+
+                //saving end date
+                endDate = "${dateFormatting.format(it.second)}"
+            }
+        }
 
         populateTasks()
-
     }
-
     fun populateTasks() {
 
         val taskList: MutableList<Task> = mutableListOf()
