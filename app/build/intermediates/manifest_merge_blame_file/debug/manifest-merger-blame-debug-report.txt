@@ -1,0 +1,262 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.clockwise"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="26"
+8-->C:\Users\vuyok\OneDrive\Documents\GitHub\Clockwise\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="33" />
+9-->C:\Users\vuyok\OneDrive\Documents\GitHub\Clockwise\app\src\main\AndroidManifest.xml
+10
+11    <!-- Although the *SdkVersion is captured in gradle build files, this is required for non gradle builds -->
+12    <!-- <uses-sdk android:minSdkVersion="14"/> -->
+13    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+13-->[com.google.firebase:firebase-database:20.2.2] C:\Users\vuyok\.gradle\caches\transforms-3\277f6d1b85e685d6ef039b75f300b190\transformed\firebase-database-20.2.2\AndroidManifest.xml:24:5-79
+13-->[com.google.firebase:firebase-database:20.2.2] C:\Users\vuyok\.gradle\caches\transforms-3\277f6d1b85e685d6ef039b75f300b190\transformed\firebase-database-20.2.2\AndroidManifest.xml:24:22-76
+14    <uses-permission android:name="android.permission.INTERNET" />
+14-->[com.google.firebase:firebase-database:20.2.2] C:\Users\vuyok\.gradle\caches\transforms-3\277f6d1b85e685d6ef039b75f300b190\transformed\firebase-database-20.2.2\AndroidManifest.xml:25:5-67
+14-->[com.google.firebase:firebase-database:20.2.2] C:\Users\vuyok\.gradle\caches\transforms-3\277f6d1b85e685d6ef039b75f300b190\transformed\firebase-database-20.2.2\AndroidManifest.xml:25:22-64
+15    <uses-permission android:name="android.permission.WAKE_LOCK" />
+15-->[com.google.android.gms:play-services-measurement-api:21.3.0] C:\Users\vuyok\.gradle\caches\transforms-3\9cef0ac360050d170052bb3582dbe98d\transformed\play-services-measurement-api-21.3.0\AndroidManifest.xml:24:5-68
+15-->[com.google.android.gms:play-services-measurement-api:21.3.0] C:\Users\vuyok\.gradle\caches\transforms-3\9cef0ac360050d170052bb3582dbe98d\transformed\play-services-measurement-api-21.3.0\AndroidManifest.xml:24:22-65
+16    <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
+16-->[com.google.android.gms:play-services-measurement-api:21.3.0] C:\Users\vuyok\.gradle\caches\transforms-3\9cef0ac360050d170052bb3582dbe98d\transformed\play-services-measurement-api-21.3.0\AndroidManifest.xml:25:5-79
+16-->[com.google.android.gms:play-services-measurement-api:21.3.0] C:\Users\vuyok\.gradle\caches\transforms-3\9cef0ac360050d170052bb3582dbe98d\transformed\play-services-measurement-api-21.3.0\AndroidManifest.xml:25:22-76
+17    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
+17-->[com.google.android.gms:play-services-measurement:21.3.0] C:\Users\vuyok\.gradle\caches\transforms-3\cbd659723c46fffb27f239d7d4d5d1a6\transformed\play-services-measurement-21.3.0\AndroidManifest.xml:26:5-110
+17-->[com.google.android.gms:play-services-measurement:21.3.0] C:\Users\vuyok\.gradle\caches\transforms-3\cbd659723c46fffb27f239d7d4d5d1a6\transformed\play-services-measurement-21.3.0\AndroidManifest.xml:26:22-107
+18
+19    <permission
+19-->[androidx.core:core:1.9.0] C:\Users\vuyok\.gradle\caches\transforms-3\409c06ac2c56a258001c3591973cf142\transformed\core-1.9.0\AndroidManifest.xml:22:5-24:47
+20        android:name="com.example.clockwise.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+20-->[androidx.core:core:1.9.0] C:\Users\vuyok\.gradle\caches\transforms-3\409c06ac2c56a258001c3591973cf142\transformed\core-1.9.0\AndroidManifest.xml:23:9-81
+21        android:protectionLevel="signature" />
+21-->[androidx.core:core:1.9.0] C:\Users\vuyok\.gradle\caches\transforms-3\409c06ac2c56a258001c3591973cf142\transformed\core-1.9.0\AndroidManifest.xml:24:9-44
+22
+23    <uses-permission android:name="com.example.clockwise.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+23-->[androidx.core:core:1.9.0] C:\Users\vuyok\.gradle\caches\transforms-3\409c06ac2c56a258001c3591973cf142\transformed\core-1.9.0\AndroidManifest.xml:26:5-97
+23-->[androidx.core:core:1.9.0] C:\Users\vuyok\.gradle\caches\transforms-3\409c06ac2c56a258001c3591973cf142\transformed\core-1.9.0\AndroidManifest.xml:26:22-94
+24
+25    <application
+25-->C:\Users\vuyok\OneDrive\Documents\GitHub\Clockwise\app\src\main\AndroidManifest.xml:5:5-49:19
+26        android:allowBackup="true"
+26-->C:\Users\vuyok\OneDrive\Documents\GitHub\Clockwise\app\src\main\AndroidManifest.xml:6:9-35
+27        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+27-->[androidx.core:core:1.9.0] C:\Users\vuyok\.gradle\caches\transforms-3\409c06ac2c56a258001c3591973cf142\transformed\core-1.9.0\AndroidManifest.xml:28:18-86
+28        android:dataExtractionRules="@xml/data_extraction_rules"
+28-->C:\Users\vuyok\OneDrive\Documents\GitHub\Clockwise\app\src\main\AndroidManifest.xml:7:9-65
+29        android:debuggable="true"
+30        android:extractNativeLibs="false"
+31        android:fullBackupContent="@xml/backup_rules"
+31-->C:\Users\vuyok\OneDrive\Documents\GitHub\Clockwise\app\src\main\AndroidManifest.xml:8:9-54
+32        android:icon="@mipmap/ic_launcher"
+32-->C:\Users\vuyok\OneDrive\Documents\GitHub\Clockwise\app\src\main\AndroidManifest.xml:9:9-43
+33        android:label="@string/app_name"
+33-->C:\Users\vuyok\OneDrive\Documents\GitHub\Clockwise\app\src\main\AndroidManifest.xml:10:9-41
+34        android:supportsRtl="true"
+34-->C:\Users\vuyok\OneDrive\Documents\GitHub\Clockwise\app\src\main\AndroidManifest.xml:11:9-35
+35        android:testOnly="true"
+36        android:theme="@style/Theme.Clockwise" >
+36-->C:\Users\vuyok\OneDrive\Documents\GitHub\Clockwise\app\src\main\AndroidManifest.xml:12:9-47
+37        <activity
+37-->C:\Users\vuyok\OneDrive\Documents\GitHub\Clockwise\app\src\main\AndroidManifest.xml:14:9-16:40
+38            android:name="com.example.clockwise.UploadPhoto"
+38-->C:\Users\vuyok\OneDrive\Documents\GitHub\Clockwise\app\src\main\AndroidManifest.xml:15:13-40
+39            android:exported="false" />
+39-->C:\Users\vuyok\OneDrive\Documents\GitHub\Clockwise\app\src\main\AndroidManifest.xml:16:13-37
+40        <activity
+40-->C:\Users\vuyok\OneDrive\Documents\GitHub\Clockwise\app\src\main\AndroidManifest.xml:17:9-19:40
+41            android:name="com.example.clockwise.Home"
+41-->C:\Users\vuyok\OneDrive\Documents\GitHub\Clockwise\app\src\main\AndroidManifest.xml:18:13-33
+42            android:exported="false" />
+42-->C:\Users\vuyok\OneDrive\Documents\GitHub\Clockwise\app\src\main\AndroidManifest.xml:19:13-37
+43        <activity
+43-->C:\Users\vuyok\OneDrive\Documents\GitHub\Clockwise\app\src\main\AndroidManifest.xml:20:9-22:40
+44            android:name="com.example.clockwise.CreateTask"
+44-->C:\Users\vuyok\OneDrive\Documents\GitHub\Clockwise\app\src\main\AndroidManifest.xml:21:13-39
+45            android:exported="false" />
+45-->C:\Users\vuyok\OneDrive\Documents\GitHub\Clockwise\app\src\main\AndroidManifest.xml:22:13-37
+46        <activity
+46-->C:\Users\vuyok\OneDrive\Documents\GitHub\Clockwise\app\src\main\AndroidManifest.xml:23:9-25:40
+47            android:name="com.example.clockwise.GetStarted"
+47-->C:\Users\vuyok\OneDrive\Documents\GitHub\Clockwise\app\src\main\AndroidManifest.xml:24:13-39
+48            android:exported="false" />
+48-->C:\Users\vuyok\OneDrive\Documents\GitHub\Clockwise\app\src\main\AndroidManifest.xml:25:13-37
+49        <activity
+49-->C:\Users\vuyok\OneDrive\Documents\GitHub\Clockwise\app\src\main\AndroidManifest.xml:26:9-28:40
+50            android:name="com.example.clockwise.Display_TotalHours"
+50-->C:\Users\vuyok\OneDrive\Documents\GitHub\Clockwise\app\src\main\AndroidManifest.xml:27:13-47
+51            android:exported="false" />
+51-->C:\Users\vuyok\OneDrive\Documents\GitHub\Clockwise\app\src\main\AndroidManifest.xml:28:13-37
+52        <activity
+52-->C:\Users\vuyok\OneDrive\Documents\GitHub\Clockwise\app\src\main\AndroidManifest.xml:29:9-31:40
+53            android:name="com.example.clockwise.Profile"
+53-->C:\Users\vuyok\OneDrive\Documents\GitHub\Clockwise\app\src\main\AndroidManifest.xml:30:13-36
+54            android:exported="false" />
+54-->C:\Users\vuyok\OneDrive\Documents\GitHub\Clockwise\app\src\main\AndroidManifest.xml:31:13-37
+55        <activity
+55-->C:\Users\vuyok\OneDrive\Documents\GitHub\Clockwise\app\src\main\AndroidManifest.xml:32:9-34:40
+56            android:name="com.example.clockwise.Hour_Goal"
+56-->C:\Users\vuyok\OneDrive\Documents\GitHub\Clockwise\app\src\main\AndroidManifest.xml:33:13-38
+57            android:exported="false" />
+57-->C:\Users\vuyok\OneDrive\Documents\GitHub\Clockwise\app\src\main\AndroidManifest.xml:34:13-37
+58        <activity
+58-->C:\Users\vuyok\OneDrive\Documents\GitHub\Clockwise\app\src\main\AndroidManifest.xml:35:9-37:40
+59            android:name="com.example.clockwise.TaskList"
+59-->C:\Users\vuyok\OneDrive\Documents\GitHub\Clockwise\app\src\main\AndroidManifest.xml:36:13-37
+60            android:exported="false" />
+60-->C:\Users\vuyok\OneDrive\Documents\GitHub\Clockwise\app\src\main\AndroidManifest.xml:37:13-37
+61        <activity
+61-->C:\Users\vuyok\OneDrive\Documents\GitHub\Clockwise\app\src\main\AndroidManifest.xml:38:9-46:20
+62            android:name="com.example.clockwise.Intro"
+62-->C:\Users\vuyok\OneDrive\Documents\GitHub\Clockwise\app\src\main\AndroidManifest.xml:39:13-34
+63            android:exported="true" >
+63-->C:\Users\vuyok\OneDrive\Documents\GitHub\Clockwise\app\src\main\AndroidManifest.xml:40:13-36
+64            <intent-filter>
+64-->C:\Users\vuyok\OneDrive\Documents\GitHub\Clockwise\app\src\main\AndroidManifest.xml:41:13-45:29
+65                <action android:name="android.intent.action.MAIN" />
+65-->C:\Users\vuyok\OneDrive\Documents\GitHub\Clockwise\app\src\main\AndroidManifest.xml:42:17-69
+65-->C:\Users\vuyok\OneDrive\Documents\GitHub\Clockwise\app\src\main\AndroidManifest.xml:42:25-66
+66
+67                <category android:name="android.intent.category.LAUNCHER" />
+67-->C:\Users\vuyok\OneDrive\Documents\GitHub\Clockwise\app\src\main\AndroidManifest.xml:44:17-77
+67-->C:\Users\vuyok\OneDrive\Documents\GitHub\Clockwise\app\src\main\AndroidManifest.xml:44:27-74
+68            </intent-filter>
+69        </activity>
+70        <activity android:name="com.example.clockwise.Login" />
+70-->C:\Users\vuyok\OneDrive\Documents\GitHub\Clockwise\app\src\main\AndroidManifest.xml:47:9-43
+70-->C:\Users\vuyok\OneDrive\Documents\GitHub\Clockwise\app\src\main\AndroidManifest.xml:47:19-40
+71        <activity android:name="com.example.clockwise.Signup" />
+71-->C:\Users\vuyok\OneDrive\Documents\GitHub\Clockwise\app\src\main\AndroidManifest.xml:48:9-44
+71-->C:\Users\vuyok\OneDrive\Documents\GitHub\Clockwise\app\src\main\AndroidManifest.xml:48:19-41
+72
+73        <service
+73-->[com.google.firebase:firebase-database-ktx:20.2.2] C:\Users\vuyok\.gradle\caches\transforms-3\ef1724dc8f50643f67d974241d8f3111\transformed\firebase-database-ktx-20.2.2\AndroidManifest.xml:11:9-17:19
+74            android:name="com.google.firebase.components.ComponentDiscoveryService"
+74-->[com.google.firebase:firebase-database-ktx:20.2.2] C:\Users\vuyok\.gradle\caches\transforms-3\ef1724dc8f50643f67d974241d8f3111\transformed\firebase-database-ktx-20.2.2\AndroidManifest.xml:12:13-84
+75            android:directBootAware="true"
+75-->[com.google.firebase:firebase-common:20.3.2] C:\Users\vuyok\.gradle\caches\transforms-3\f72a58fdf4aa0796282fcaf56dbefafc\transformed\firebase-common-20.3.2\AndroidManifest.xml:34:13-43
+76            android:exported="false" >
+76-->[com.google.firebase:firebase-database-ktx:20.2.2] C:\Users\vuyok\.gradle\caches\transforms-3\ef1724dc8f50643f67d974241d8f3111\transformed\firebase-database-ktx-20.2.2\AndroidManifest.xml:13:13-37
+77            <meta-data
+77-->[com.google.firebase:firebase-database-ktx:20.2.2] C:\Users\vuyok\.gradle\caches\transforms-3\ef1724dc8f50643f67d974241d8f3111\transformed\firebase-database-ktx-20.2.2\AndroidManifest.xml:14:13-16:85
+78                android:name="com.google.firebase.components:com.google.firebase.database.ktx.FirebaseDatabaseKtxRegistrar"
+78-->[com.google.firebase:firebase-database-ktx:20.2.2] C:\Users\vuyok\.gradle\caches\transforms-3\ef1724dc8f50643f67d974241d8f3111\transformed\firebase-database-ktx-20.2.2\AndroidManifest.xml:15:17-124
+79                android:value="com.google.firebase.components.ComponentRegistrar" />
+79-->[com.google.firebase:firebase-database-ktx:20.2.2] C:\Users\vuyok\.gradle\caches\transforms-3\ef1724dc8f50643f67d974241d8f3111\transformed\firebase-database-ktx-20.2.2\AndroidManifest.xml:16:17-82
+80            <meta-data
+80-->[com.google.firebase:firebase-analytics-ktx:21.3.0] C:\Users\vuyok\.gradle\caches\transforms-3\d2325591c1cb2f6db46ee58949772894\transformed\firebase-analytics-ktx-21.3.0\AndroidManifest.xml:11:13-13:85
+81                android:name="com.google.firebase.components:com.google.firebase.analytics.ktx.FirebaseAnalyticsKtxRegistrar"
+81-->[com.google.firebase:firebase-analytics-ktx:21.3.0] C:\Users\vuyok\.gradle\caches\transforms-3\d2325591c1cb2f6db46ee58949772894\transformed\firebase-analytics-ktx-21.3.0\AndroidManifest.xml:12:17-126
+82                android:value="com.google.firebase.components.ComponentRegistrar" />
+82-->[com.google.firebase:firebase-analytics-ktx:21.3.0] C:\Users\vuyok\.gradle\caches\transforms-3\d2325591c1cb2f6db46ee58949772894\transformed\firebase-analytics-ktx-21.3.0\AndroidManifest.xml:13:17-82
+83            <meta-data
+83-->[com.google.firebase:firebase-common-ktx:20.3.2] C:\Users\vuyok\.gradle\caches\transforms-3\ea486524f52d4f039447007defefe03f\transformed\firebase-common-ktx-20.3.2\AndroidManifest.xml:14:13-16:85
+84                android:name="com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonKtxRegistrar"
+84-->[com.google.firebase:firebase-common-ktx:20.3.2] C:\Users\vuyok\.gradle\caches\transforms-3\ea486524f52d4f039447007defefe03f\transformed\firebase-common-ktx-20.3.2\AndroidManifest.xml:15:17-113
+85                android:value="com.google.firebase.components.ComponentRegistrar" />
+85-->[com.google.firebase:firebase-common-ktx:20.3.2] C:\Users\vuyok\.gradle\caches\transforms-3\ea486524f52d4f039447007defefe03f\transformed\firebase-common-ktx-20.3.2\AndroidManifest.xml:16:17-82
+86            <meta-data
+86-->[com.google.firebase:firebase-database:20.2.2] C:\Users\vuyok\.gradle\caches\transforms-3\277f6d1b85e685d6ef039b75f300b190\transformed\firebase-database-20.2.2\AndroidManifest.xml:31:13-33:85
+87                android:name="com.google.firebase.components:com.google.firebase.database.DatabaseRegistrar"
+87-->[com.google.firebase:firebase-database:20.2.2] C:\Users\vuyok\.gradle\caches\transforms-3\277f6d1b85e685d6ef039b75f300b190\transformed\firebase-database-20.2.2\AndroidManifest.xml:32:17-109
+88                android:value="com.google.firebase.components.ComponentRegistrar" />
+88-->[com.google.firebase:firebase-database:20.2.2] C:\Users\vuyok\.gradle\caches\transforms-3\277f6d1b85e685d6ef039b75f300b190\transformed\firebase-database-20.2.2\AndroidManifest.xml:33:17-82
+89            <meta-data
+89-->[com.google.android.gms:play-services-measurement-api:21.3.0] C:\Users\vuyok\.gradle\caches\transforms-3\9cef0ac360050d170052bb3582dbe98d\transformed\play-services-measurement-api-21.3.0\AndroidManifest.xml:31:13-33:85
+90                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
+90-->[com.google.android.gms:play-services-measurement-api:21.3.0] C:\Users\vuyok\.gradle\caches\transforms-3\9cef0ac360050d170052bb3582dbe98d\transformed\play-services-measurement-api-21.3.0\AndroidManifest.xml:32:17-139
+91                android:value="com.google.firebase.components.ComponentRegistrar" />
+91-->[com.google.android.gms:play-services-measurement-api:21.3.0] C:\Users\vuyok\.gradle\caches\transforms-3\9cef0ac360050d170052bb3582dbe98d\transformed\play-services-measurement-api-21.3.0\AndroidManifest.xml:33:17-82
+92            <meta-data
+92-->[com.google.firebase:firebase-installations:17.1.3] C:\Users\vuyok\.gradle\caches\transforms-3\e0e0b07169f07d2b30b0e582806d038e\transformed\firebase-installations-17.1.3\AndroidManifest.xml:17:13-19:85
+93                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
+93-->[com.google.firebase:firebase-installations:17.1.3] C:\Users\vuyok\.gradle\caches\transforms-3\e0e0b07169f07d2b30b0e582806d038e\transformed\firebase-installations-17.1.3\AndroidManifest.xml:18:17-127
+94                android:value="com.google.firebase.components.ComponentRegistrar" />
+94-->[com.google.firebase:firebase-installations:17.1.3] C:\Users\vuyok\.gradle\caches\transforms-3\e0e0b07169f07d2b30b0e582806d038e\transformed\firebase-installations-17.1.3\AndroidManifest.xml:19:17-82
+95        </service>
+96
+97        <provider
+97-->[com.google.firebase:firebase-common:20.3.2] C:\Users\vuyok\.gradle\caches\transforms-3\f72a58fdf4aa0796282fcaf56dbefafc\transformed\firebase-common-20.3.2\AndroidManifest.xml:25:9-30:39
+98            android:name="com.google.firebase.provider.FirebaseInitProvider"
+98-->[com.google.firebase:firebase-common:20.3.2] C:\Users\vuyok\.gradle\caches\transforms-3\f72a58fdf4aa0796282fcaf56dbefafc\transformed\firebase-common-20.3.2\AndroidManifest.xml:26:13-77
+99            android:authorities="com.example.clockwise.firebaseinitprovider"
+99-->[com.google.firebase:firebase-common:20.3.2] C:\Users\vuyok\.gradle\caches\transforms-3\f72a58fdf4aa0796282fcaf56dbefafc\transformed\firebase-common-20.3.2\AndroidManifest.xml:27:13-72
+100            android:directBootAware="true"
+100-->[com.google.firebase:firebase-common:20.3.2] C:\Users\vuyok\.gradle\caches\transforms-3\f72a58fdf4aa0796282fcaf56dbefafc\transformed\firebase-common-20.3.2\AndroidManifest.xml:28:13-43
+101            android:exported="false"
+101-->[com.google.firebase:firebase-common:20.3.2] C:\Users\vuyok\.gradle\caches\transforms-3\f72a58fdf4aa0796282fcaf56dbefafc\transformed\firebase-common-20.3.2\AndroidManifest.xml:29:13-37
+102            android:initOrder="100" />
+102-->[com.google.firebase:firebase-common:20.3.2] C:\Users\vuyok\.gradle\caches\transforms-3\f72a58fdf4aa0796282fcaf56dbefafc\transformed\firebase-common-20.3.2\AndroidManifest.xml:30:13-36
+103
+104        <activity
+104-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\vuyok\.gradle\caches\transforms-3\ec4d49e14e65c716f6a924b53a50356d\transformed\play-services-base-18.1.0\AndroidManifest.xml:20:9-22:45
+105            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+105-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\vuyok\.gradle\caches\transforms-3\ec4d49e14e65c716f6a924b53a50356d\transformed\play-services-base-18.1.0\AndroidManifest.xml:20:19-85
+106            android:exported="false"
+106-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\vuyok\.gradle\caches\transforms-3\ec4d49e14e65c716f6a924b53a50356d\transformed\play-services-base-18.1.0\AndroidManifest.xml:22:19-43
+107            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+107-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\vuyok\.gradle\caches\transforms-3\ec4d49e14e65c716f6a924b53a50356d\transformed\play-services-base-18.1.0\AndroidManifest.xml:21:19-78
+108
+109        <receiver
+109-->[com.google.android.gms:play-services-measurement:21.3.0] C:\Users\vuyok\.gradle\caches\transforms-3\cbd659723c46fffb27f239d7d4d5d1a6\transformed\play-services-measurement-21.3.0\AndroidManifest.xml:29:9-33:20
+110            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+110-->[com.google.android.gms:play-services-measurement:21.3.0] C:\Users\vuyok\.gradle\caches\transforms-3\cbd659723c46fffb27f239d7d4d5d1a6\transformed\play-services-measurement-21.3.0\AndroidManifest.xml:30:13-85
+111            android:enabled="true"
+111-->[com.google.android.gms:play-services-measurement:21.3.0] C:\Users\vuyok\.gradle\caches\transforms-3\cbd659723c46fffb27f239d7d4d5d1a6\transformed\play-services-measurement-21.3.0\AndroidManifest.xml:31:13-35
+112            android:exported="false" >
+112-->[com.google.android.gms:play-services-measurement:21.3.0] C:\Users\vuyok\.gradle\caches\transforms-3\cbd659723c46fffb27f239d7d4d5d1a6\transformed\play-services-measurement-21.3.0\AndroidManifest.xml:32:13-37
+113        </receiver>
+114
+115        <service
+115-->[com.google.android.gms:play-services-measurement:21.3.0] C:\Users\vuyok\.gradle\caches\transforms-3\cbd659723c46fffb27f239d7d4d5d1a6\transformed\play-services-measurement-21.3.0\AndroidManifest.xml:35:9-38:40
+116            android:name="com.google.android.gms.measurement.AppMeasurementService"
+116-->[com.google.android.gms:play-services-measurement:21.3.0] C:\Users\vuyok\.gradle\caches\transforms-3\cbd659723c46fffb27f239d7d4d5d1a6\transformed\play-services-measurement-21.3.0\AndroidManifest.xml:36:13-84
+117            android:enabled="true"
+117-->[com.google.android.gms:play-services-measurement:21.3.0] C:\Users\vuyok\.gradle\caches\transforms-3\cbd659723c46fffb27f239d7d4d5d1a6\transformed\play-services-measurement-21.3.0\AndroidManifest.xml:37:13-35
+118            android:exported="false" />
+118-->[com.google.android.gms:play-services-measurement:21.3.0] C:\Users\vuyok\.gradle\caches\transforms-3\cbd659723c46fffb27f239d7d4d5d1a6\transformed\play-services-measurement-21.3.0\AndroidManifest.xml:38:13-37
+119        <service
+119-->[com.google.android.gms:play-services-measurement:21.3.0] C:\Users\vuyok\.gradle\caches\transforms-3\cbd659723c46fffb27f239d7d4d5d1a6\transformed\play-services-measurement-21.3.0\AndroidManifest.xml:39:9-43:72
+120            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+120-->[com.google.android.gms:play-services-measurement:21.3.0] C:\Users\vuyok\.gradle\caches\transforms-3\cbd659723c46fffb27f239d7d4d5d1a6\transformed\play-services-measurement-21.3.0\AndroidManifest.xml:40:13-87
+121            android:enabled="true"
+121-->[com.google.android.gms:play-services-measurement:21.3.0] C:\Users\vuyok\.gradle\caches\transforms-3\cbd659723c46fffb27f239d7d4d5d1a6\transformed\play-services-measurement-21.3.0\AndroidManifest.xml:41:13-35
+122            android:exported="false"
+122-->[com.google.android.gms:play-services-measurement:21.3.0] C:\Users\vuyok\.gradle\caches\transforms-3\cbd659723c46fffb27f239d7d4d5d1a6\transformed\play-services-measurement-21.3.0\AndroidManifest.xml:42:13-37
+123            android:permission="android.permission.BIND_JOB_SERVICE" />
+123-->[com.google.android.gms:play-services-measurement:21.3.0] C:\Users\vuyok\.gradle\caches\transforms-3\cbd659723c46fffb27f239d7d4d5d1a6\transformed\play-services-measurement-21.3.0\AndroidManifest.xml:43:13-69
+124
+125        <meta-data
+125-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\vuyok\.gradle\caches\transforms-3\bcd6e3128d0937bd5ceee27ccd61b98b\transformed\play-services-basement-18.1.0\AndroidManifest.xml:21:9-23:69
+126            android:name="com.google.android.gms.version"
+126-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\vuyok\.gradle\caches\transforms-3\bcd6e3128d0937bd5ceee27ccd61b98b\transformed\play-services-basement-18.1.0\AndroidManifest.xml:22:13-58
+127            android:value="@integer/google_play_services_version" />
+127-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\vuyok\.gradle\caches\transforms-3\bcd6e3128d0937bd5ceee27ccd61b98b\transformed\play-services-basement-18.1.0\AndroidManifest.xml:23:13-66
+128
+129        <provider
+129-->[androidx.emoji2:emoji2:1.2.0] C:\Users\vuyok\.gradle\caches\transforms-3\079defd939b126218c559e525c76c2cf\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+130            android:name="androidx.startup.InitializationProvider"
+130-->[androidx.emoji2:emoji2:1.2.0] C:\Users\vuyok\.gradle\caches\transforms-3\079defd939b126218c559e525c76c2cf\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
+131            android:authorities="com.example.clockwise.androidx-startup"
+131-->[androidx.emoji2:emoji2:1.2.0] C:\Users\vuyok\.gradle\caches\transforms-3\079defd939b126218c559e525c76c2cf\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
+132            android:exported="false" >
+132-->[androidx.emoji2:emoji2:1.2.0] C:\Users\vuyok\.gradle\caches\transforms-3\079defd939b126218c559e525c76c2cf\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
+133            <meta-data
+133-->[androidx.emoji2:emoji2:1.2.0] C:\Users\vuyok\.gradle\caches\transforms-3\079defd939b126218c559e525c76c2cf\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+134                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+134-->[androidx.emoji2:emoji2:1.2.0] C:\Users\vuyok\.gradle\caches\transforms-3\079defd939b126218c559e525c76c2cf\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
+135                android:value="androidx.startup" />
+135-->[androidx.emoji2:emoji2:1.2.0] C:\Users\vuyok\.gradle\caches\transforms-3\079defd939b126218c559e525c76c2cf\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
+136            <meta-data
+136-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\vuyok\.gradle\caches\transforms-3\abd7aeb1615eb0771792a393fa97a81e\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:31:13-33:52
+137                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+137-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\vuyok\.gradle\caches\transforms-3\abd7aeb1615eb0771792a393fa97a81e\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:32:17-78
+138                android:value="androidx.startup" />
+138-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\vuyok\.gradle\caches\transforms-3\abd7aeb1615eb0771792a393fa97a81e\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:33:17-49
+139        </provider>
+140    </application>
+141
+142</manifest>

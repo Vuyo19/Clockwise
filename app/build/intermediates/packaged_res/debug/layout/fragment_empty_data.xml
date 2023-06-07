@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EmptyData"
+    android:background="@android:color/transparent">
+
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <!--
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="850dp"
+        android:orientation="vertical"
+        android:gravity="center">
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/add_task"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="-100dp"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:background="@drawable/alt_create_task_button"
+            android:drawableLeft="@drawable/baseline_add_24"
+            android:paddingStart="23.5dp"
+            android:paddingEnd="16dp"
+            android:layout_centerVertical="true" />
+
+
+
+        <ImageView
+            android:id="@+id/quickInfo"
+            android:layout_width="400dp"
+            android:layout_height="900dp"
+            android:layout_marginTop="-330dp"
+            android:contentDescription="Application Information"
+            android:layout_gravity="center"
+            android:src="@drawable/empty_data_visual" />
+
+    </LinearLayout> -->
+
+</FrameLayout>

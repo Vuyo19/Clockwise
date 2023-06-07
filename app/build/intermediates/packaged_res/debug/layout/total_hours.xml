@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/create_task_back_img">
+
+
+    <!-- Primary layout holding all other secondary layouts -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- Page info layout -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:orientation="vertical"
+            android:layout_gravity="center">
+
+            <!-- Return Back to previous page Button -->
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/Btn_back_totalHrs"
+                android:layout_width="55dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/baseline_arrow_back"
+                android:contentDescription="Back Button"
+                android:layout_marginTop="36dp"
+                android:layout_marginLeft="15dp"
+                android:background="@drawable/alt_back_button"
+                android:drawableStart="@drawable/baseline_arrow_back_24"
+                android:paddingStart="18dp"
+                android:layout_marginStart="15dp" />
+
+
+            <!-- Page Heading -->
+            <TextView
+                android:id="@+id/Txt_dateRange"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="TOTAL HOURS"
+                android:fontFamily="@font/basementgrotesque"
+                android:layout_gravity="center"
+                android:textSize="23sp"
+                android:textColor="@color/white"
+                android:layout_marginTop="-40dp"
+                android:layout_marginBottom="5dp"/>
+
+            <!-- Page Description -->
+            <TextView
+                android:id="@+id/text_desc"
+                android:layout_height="wrap_content"
+                android:layout_width="230dp"
+                android:text="Select date range"
+                android:fontFamily="@font/basementgrotesque"
+                android:layout_gravity="center"
+                android:textSize="12sp"
+                android:textAlignment="center"
+                android:textColor="@color/white" />
+
+
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="700dp">
+
+            <!-- User Input  -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <ListView
+                    android:id="@+id/ListV_totalHrs"
+                    android:layout_width="408dp"
+                    android:layout_height="550dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.333"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
