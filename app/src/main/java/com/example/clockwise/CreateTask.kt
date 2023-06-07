@@ -203,10 +203,6 @@ class CreateTask : AppCompatActivity() {
         }
     }
 
-    fun getExistingArrays() {
-
-    }
-
     private fun setStartTime() {
         // Creating local variables to store the selected values
         val calendar = Calendar.getInstance()

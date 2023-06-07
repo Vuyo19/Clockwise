@@ -37,6 +37,9 @@ class TaskList : AppCompatActivity() {
 
     var fbCategoryList = ArrayList<String>()
 
+    /*
+    val sharedPreference = getSharedPreferences("MY_SESSION", MODE_PRIVATE);
+    val id = sharedPreference.getString("ID", "").toString(); */
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -45,6 +48,8 @@ class TaskList : AppCompatActivity() {
 
         val sharedPreference = getSharedPreferences("MY_SESSION", MODE_PRIVATE);
         val id = sharedPreference.getString("ID", "").toString();
+
+        populateTasksStarter(id)
 
         //creating listener for selecting the date range
         findViewById<TextView>(R.id.Btn_selectDate).setOnClickListener{
@@ -68,86 +73,57 @@ class TaskList : AppCompatActivity() {
             }
         }
 
-        populateTasksStarter(id)
     }
     fun populateTasksStarter(id: String) {
-
-        val taskList: MutableList<Task> = mutableListOf()
 
         val database = Firebase.database
 
         // Creating a reference
         val myTaskRef = database.getReference("Tasks")
 
-        // Retreiving the category array.
-        retrieveCategoryArray(id)
-
         val parentLinearLayout: LinearLayout = findViewById(R.id.parentLayoutTask) // Replace with the actual ID of your parent layout
 
         // Loading the default category.
-        val childRef = myTaskRef.child(id).child(fbCategoryList[0])
+        val childRef = myTaskRef.child(id)
 
         childRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-                for (taskSnapshot in dataSnapshot.children) {
+                for (categorySnapshot in dataSnapshot.children) {
+                    val categoryKey = categorySnapshot.key // Get the key of each category node
 
-                    val containerLayout = layoutInflater.inflate(R.layout.task_template, null) as CardView
+                    // Exclude a specific category node
+                    if (categoryKey != "UserCategory") {
+                        for (taskSnapshot in categorySnapshot.children) {
+                            val containerLayout = layoutInflater.inflate(R.layout.task_template, null) as CardView
 
-                    val uniqueKey = taskSnapshot.key // Get the unique key of each child node
-                    val taskValues = taskSnapshot.value as HashMap<*, *> // Retrieve the values of the child node as a HashMap
+                            val uniqueKey = taskSnapshot.key // Get the unique key of each child node
+                            val taskValues = taskSnapshot.value as HashMap<*, *> // Retrieve the values of the child node as a HashMap
 
-                    val title = taskValues["title"] as String
-                    val description = taskValues["description"] as String
-                    val category = taskValues["category"] as String
+                            val title = taskValues["title"] as String
+                            val description = taskValues["description"] as String
+                            val category = taskValues["category"] as String
 
-                    // Find the views within the container layout
-                    val titleTextView: TextView = containerLayout.findViewById(R.id.titleTextView)
-                    val categoryTextView: TextView = containerLayout.findViewById(R.id.categoryTextView)
-                    val descriptionTextView: TextView = containerLayout.findViewById(R.id.descriptionTextView)
+                            // Find the views within the container layout
+                            val titleTextView: TextView = containerLayout.findViewById(R.id.titleTextView)
+                            val categoryTextView: TextView = containerLayout.findViewById(R.id.categoryTextView)
+                            val descriptionTextView: TextView = containerLayout.findViewById(R.id.descriptionTextView)
 
-                    // Set the values for the views
-                    titleTextView.text = "Title: $title"
-                    categoryTextView.text = "Category: $category"
-                    descriptionTextView.text = "Description: $description"
+                            // Set the values for the views
+                            titleTextView.text = "Title: $title"
+                            categoryTextView.text = "Category: $category"
+                            descriptionTextView.text = "Description: $description"
 
-                    // Add the container layout to the parent LinearLayout
-                    parentLinearLayout.addView(containerLayout)
+                            // Add the container layout to the parent LinearLayout
+                            parentLinearLayout.addView(containerLayout)
+
+                        }
+                    }
                 }
             }
 
             override fun onCancelled(databaseError: DatabaseError) {
                 // Handle any errors that occur during the retrieval process
                 // ...
-            }
-        })
-
-    }
-
-    // function to retrieve the category.
-    fun retrieveCategoryArray(id: String) {
-
-        val database = Firebase.database
-        // Creating a reference
-        val myTaskRef = database.getReference("Tasks")
-
-        val childRef = myTaskRef.child(id).child("UserCategory")
-
-        childRef.addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                fbCategoryList.clear() // Clear the ArrayList before adding new values
-
-                for (categorySnapshot in dataSnapshot.children) {
-                    val category = categorySnapshot.getValue(String::class.java)
-                    category?.let {
-                        fbCategoryList.add(it)
-                    }
-                }
-
-                // Use the userCategoryList as needed here
-            }
-
-            override fun onCancelled(databaseError: DatabaseError) {
-                // Handle error
             }
         })
 

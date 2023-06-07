@@ -1,6 +1,8 @@
 package com.example.clockwise
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -62,6 +64,14 @@ class Signup : AppCompatActivity() {
                 emailEditText.setText("");
                 passwordEditText.setText("");
 
+                // getting the currently logged in user.
+                val userExists = db.signinUser(email);
+
+                if (userExists) {
+                    // Creating the session for the user by storing the ID.
+                    createSession(email)
+                }
+
                 // Taking the user to the login page to officially sign in
                 // User will be redirected to the login page.
                 // Perform the action when the link is clicked.
@@ -71,9 +81,19 @@ class Signup : AppCompatActivity() {
             } else {
                 Toast.makeText(this, "Password must match with password confirmation", Toast.LENGTH_SHORT).show()
             }
-
-
         }
+    }
+
+    fun createSession(emailCheck: String) {
+        val sharedPreference: SharedPreferences = getSharedPreferences("MY_SESSION", Context.MODE_PRIVATE)
+
+        val db = DBHelper(this, null)
+
+        val id = db.returnID(emailCheck)
+
+        val editor: SharedPreferences.Editor = sharedPreference.edit()
+
+        editor.putString("ID", id)
 
     }
 }

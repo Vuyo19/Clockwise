@@ -107,6 +107,31 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
     }
 
     @SuppressLint("Range")
+    fun signinUser(emailCheck: String): Boolean {
+
+        // here we are creating a readable
+        // variable of our database
+        // as we want to read value from it
+        val db = this.readableDatabase
+        // Creating an object for the database process.
+
+        var validUser = false
+
+        // below code returns a cursor to
+        // read data from the database
+        val rowExists = "SELECT Email FROM " + TABLE_NAME + " WHERE Email = ?"
+        val selectionArgs = arrayOf(emailCheck)
+        val cursor = db.rawQuery(rowExists, selectionArgs)
+
+        if(cursor.moveToFirst()) {
+            validUser = true
+        }
+
+
+        return validUser
+    }
+
+    @SuppressLint("Range")
     fun returnID(email: String): String {
         val db = this.readableDatabase
         var capturedID = ""
