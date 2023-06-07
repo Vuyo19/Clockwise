@@ -41,9 +41,9 @@
         android:text="DAILY GOAL"
         android:fontFamily="@font/basementgrotesque"
         android:layout_gravity="center"
-        android:textSize="36dp"
+        android:textSize="28sp"
         android:textColor="@color/white"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="-40dp"
         android:layout_marginBottom="5dp"/>
 
     <!-- Page Description -->
@@ -69,7 +69,7 @@
             android:src="@drawable/baseline_calendar_today_24"
             android:background="@android:color/transparent"
             android:contentDescription="Back Button"
-            android:layout_marginTop="38dp"
+            android:layout_marginTop="98dp"
             android:layout_marginStart="100dp"/>
 
         <TextView
@@ -81,7 +81,7 @@
             android:layout_gravity="center"
             android:textSize="16sp"
             android:textColor="@color/white"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginTop="50dp"/>
     </LinearLayout>
 
 </LinearLayout>
