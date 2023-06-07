@@ -149,7 +149,8 @@
                 android:layout_gravity="center"
                 android:background="@null"
                 android:scaleType="fitCenter"
-                android:src="@drawable/btn_apple"/>
+                android:src="@drawable/btn_apple"
+                android:contentDescription="Apple Option"/>
 
             <!-- Log in using Google Account Button -->
             <ImageButton
@@ -159,7 +160,8 @@
                 android:layout_gravity="center"
                 android:background="@null"
                 android:scaleType="fitCenter"
-                android:src="@drawable/btn_google" />
+                android:src="@drawable/btn_google"
+                android:contentDescription="Google Option"/>
 
             <!-- Log in using SSO Account Button -->
             <ImageButton
@@ -169,7 +171,8 @@
                 android:layout_gravity="center"
                 android:background="@null"
                 android:scaleType="fitCenter"
-                android:src="@drawable/btn_sso"/>
+                android:src="@drawable/btn_sso"
+                android:contentDescription="SSO Option "/>
 
         </LinearLayout>
 
