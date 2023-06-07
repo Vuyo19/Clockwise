@@ -16,6 +16,7 @@ class Home : AppCompatActivity() {
     private lateinit var nav: BottomNavigationView
     private lateinit var button_create_task: Button
     private lateinit var button_view_task: Button
+    private lateinit var button_view_total_hours: Button
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,6 +40,7 @@ class Home : AppCompatActivity() {
        // Directing the user to the create task page if button clicked.
         button_create_task = findViewById<Button>(R.id.btn_create_task);
         button_view_task = findViewById<Button>(R.id.btn_view_tasks)
+        button_view_total_hours = findViewById<Button>(R.id.btn_view_total_hours)
 
         button_create_task.setOnClickListener {
             val intent = Intent(this@Home, CreateTask::class.java)
@@ -50,6 +52,10 @@ class Home : AppCompatActivity() {
             startActivity(intent)
         }
 
+        button_view_total_hours.setOnClickListener {
+            val intent = Intent(this@Home, Display_TotalHours::class.java)
+            startActivity(intent)
+        }
 
     }
 }

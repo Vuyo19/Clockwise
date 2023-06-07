@@ -3,9 +3,11 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_main.*
+// import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+
+    /*
 
     private val REQUEST_IMAGE_CAPTURE = 1
 
@@ -31,7 +33,7 @@ class MainActivity : AppCompatActivity() {
             val imageUri: Uri? = data?.data
             // Save the imageUri to the database or perform further operations
         }
-    }
+    } */
 
     // Other functions and code in your activity
 

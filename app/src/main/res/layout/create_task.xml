@@ -59,7 +59,6 @@
                 android:textAlignment="center"
                 android:textColor="@color/white" />
 
-
         </LinearLayout>
 
         <ScrollView
@@ -73,18 +72,43 @@
                 android:orientation="vertical"
                 android:gravity="center">
 
-                <!-- Enter last name label -->
                 <TextView
-                    android:id="@+id/taskTitle"
+                    android:id="@+id/titleLabel"
                     android:layout_height="24dp"
                     android:layout_width="100dp"
-                    android:text="Task Title"
+                    android:text="Title"
                     android:textColor="@color/white"
                     android:layout_gravity="left"
                     android:layout_marginLeft="86dp"
                     android:background="@drawable/textbox_element"
                     android:paddingStart="10dp"
                     android:layout_marginTop="60dp"/>
+
+                <!-- Enter last name text-box -->
+                <EditText
+                    android:id="@+id/taskTitle"
+                    android:layout_height="65dp"
+                    android:layout_width="300dp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/pink_border"
+                    android:hint=""
+                    android:textColor="@color/white"
+                    android:textColorHint="@android:color/white"
+                    android:textSize="14sp"
+                    android:paddingStart="20dp" />
+
+
+                <TextView
+                    android:id="@+id/descriptionLabel"
+                    android:layout_height="24dp"
+                    android:layout_width="100dp"
+                    android:text="Description"
+                    android:textColor="@color/white"
+                    android:layout_gravity="left"
+                    android:layout_marginLeft="86dp"
+                    android:background="@drawable/textbox_element"
+                    android:paddingStart="10dp"
+                    android:layout_marginTop="20dp"/>
 
                 <!-- Enter last name text-box -->
                 <EditText

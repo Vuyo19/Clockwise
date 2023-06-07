@@ -1,8 +1,10 @@
 package com.example.clockwise
 
 import android.app.DatePickerDialog
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
+import android.widget.Button
 import android.widget.ListView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -21,6 +23,8 @@ class Display_TotalHours : AppCompatActivity(){
     private lateinit var startDate : String
 
     private lateinit var endDate : String
+
+    private lateinit var btnBackMenu: Button
 
     //creating arraylist
     val categoriesList = ArrayList<String>()
@@ -52,6 +56,7 @@ class Display_TotalHours : AppCompatActivity(){
 
         //referencing listview
         val hrsList = findViewById<ListView>(R.id.ListV_totalHrs)
+        val btnBackMenu = findViewById<Button>(R.id.Btn_back_totalHrs)
 
         //adding values to arraylist
         categoriesList.add("Category1")
@@ -65,6 +70,12 @@ class Display_TotalHours : AppCompatActivity(){
 
         //setting listview adapter
         hrsList.adapter = newAdapter;
+
+        // Clicking the button back to the main menu.
+        btnBackMenu.setOnClickListener {
+            val intent = Intent(this@Display_TotalHours, Home::class.java)
+            startActivity(intent)
+        }
 
 
     }

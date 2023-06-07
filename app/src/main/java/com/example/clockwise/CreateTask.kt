@@ -75,7 +75,7 @@ class CreateTask : AppCompatActivity() {
             // Taking action once the button has been clicked.
             // Get the chosen title.
 
-            val text_title = findViewById<TextView>(R.id.editTitle)
+            val text_title = findViewById<TextView>(R.id.taskTitle)
             val text_title_final = text_title.text.toString()
 
             // Get the chosen description
