@@ -1,32 +1,31 @@
 package com.example.clockwise
 
-import android.app.DatePickerDialog
 import android.content.Intent
-import android.os.Bundle
-import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.widget.Button
+import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.core.util.Pair
 import com.google.android.material.datepicker.MaterialDatePicker
-import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
-import java.sql.Time
+import com.jjoe64.graphview.GraphView
+import com.jjoe64.graphview.helper.DateAsXAxisLabelFormatter
+import com.jjoe64.graphview.series.DataPoint
+import com.jjoe64.graphview.series.LineGraphSeries
 import java.text.SimpleDateFormat
 import java.time.Duration
 import java.time.LocalTime
-import java.util.Date
 import java.util.*
-import kotlin.collections.ArrayList
 
-class Display_TotalHours : AppCompatActivity(){
-
-
-    //creating string
-    private lateinit var newCategory: String
+//Referencing:
+//https://www.geeksforgeeks.org/android-line-graph-view-with-kotlin/
+class Graph_TotalHours : AppCompatActivity() {
 
     private lateinit var dateFilterStart : String
 
@@ -54,24 +53,21 @@ class Display_TotalHours : AppCompatActivity(){
 
     private lateinit var id : String
 
-
-
-    //creating arraylist
-    val categoriesList = ArrayList<String>()
+    lateinit var totalHrsGraph: GraphView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.total_hours)
+        setContentView(R.layout.graph_total_hours)
+
+        //linking variable to layout graph
+        totalHrsGraph = findViewById(R.id.Graph_TotalHrs)
 
         //referencing back button
-        val btnBackMenu = findViewById<Button>(R.id.Btn_back_totalHrs)
-
-        //referencing linear layout
-        viewFilteredHours = findViewById(R.id.viewTotalHrs)
+        val btnBackMenu = findViewById<Button>(R.id.Btn_back_totalHrsGraph)
 
         // Clicking the button back to the main menu.
         btnBackMenu.setOnClickListener {
-            val intent = Intent(this@Display_TotalHours, Home::class.java)
+            val intent = Intent(this@Graph_TotalHours, Home::class.java)
             startActivity(intent)
         }
 
@@ -80,11 +76,13 @@ class Display_TotalHours : AppCompatActivity(){
         id = sharedPreference.getString("ID", "").toString();
 
         //creating listener for selecting the date range
-        findViewById<Button>(R.id.Btn_selectRange).setOnClickListener{
+        findViewById<Button>(R.id.Btn_selectRangeGraph).setOnClickListener {
             val dateRange = MaterialDatePicker.Builder.dateRangePicker()
                 .setTitleText("Please Select").setSelection(
-                    Pair(MaterialDatePicker.thisMonthInUtcMilliseconds(),
-                        MaterialDatePicker.todayInUtcMilliseconds())
+                    Pair(
+                        MaterialDatePicker.thisMonthInUtcMilliseconds(),
+                        MaterialDatePicker.todayInUtcMilliseconds()
+                    )
                 ).build()
 
             dateRange.show(supportFragmentManager, "dateRange_picker")
@@ -105,7 +103,6 @@ class Display_TotalHours : AppCompatActivity(){
                 endDate = dateFormatting.parse(dateFilterEnd)
 
             }
-
             //calling method to fetch data
             fetchData();
         }
@@ -137,28 +134,14 @@ class Display_TotalHours : AppCompatActivity(){
                     val taskValues = taskSnapshot.value as HashMap<*, *> // Retrieve the values of the child node as a HashMap
 
                     //saving values from the database
-                    val category = taskValues["category"] as String
                     taskDate = taskValues["normalDate"] as Date
                     startTime = taskValues["startTime"] as String
                     endTime = taskValues["endTime"] as String
 
-                    //calling method to filter date
-                    displayFilter(taskDate);
 
                     if(displayFilter(taskDate) == true) {
-                        // Find the views within the container layout
-                        val categoryTextView: TextView =
-                            containerLayout.findViewById(R.id.categoryTextView)
-                        val totalHoursTextView: TextView =
-                            containerLayout.findViewById(R.id.totalHoursTextView)
-
-                        // Set the values for the views
-                        categoryTextView.text = "Category: $category"
-                        totalHoursTextView.text = "Total Hours: $cat_totalHours"
-
-
-                        //Adding the container layout to the linear layout
-                        viewFilteredHours.addView(containerLayout)
+                        // calling method to calculate total hours spent on a task
+                        calculateTotalTaskHours();
                     }
 
                 }
@@ -190,6 +173,50 @@ class Display_TotalHours : AppCompatActivity(){
 
         //total time spent doing task
         task_hoursSpent = timeSpent.toInt();
+
+        //calling method to configure graph
+        ConfigureGraph();
     }
 
+
+    private fun ConfigureGraph(){
+        //erasing any previous graph values
+        totalHrsGraph.removeAllSeries();
+
+        //creating series from array to add data to graph
+        val graphHrs : LineGraphSeries<DataPoint> = LineGraphSeries(
+            arrayOf(
+                //adding point in line graph
+                DataPoint(0.0, 0.0),
+                DataPoint(1.0, 1.0),
+                DataPoint(3.0, 2.0),
+                DataPoint(5.0, 5.0),
+                DataPoint(7.0, 9.0)
+            )
+        )
+
+        //setting graph title
+        totalHrsGraph.title = "Your Hours Worked:"
+
+        //setting graph to be scalable
+        totalHrsGraph.viewport.isScalable = true
+
+        //setting graph to be scrollable
+        totalHrsGraph.viewport.isScrollable = true
+
+        //graph animation
+        totalHrsGraph.animate()
+
+        //making Y axis scalable
+        totalHrsGraph.viewport.setScalableY(true)
+
+        //making Y axis scrollable
+        totalHrsGraph.viewport.setScrollableY(true)
+
+        //setting line color
+        graphHrs.color = R.color.purple_200
+
+        //adding line to graph
+        totalHrsGraph.addSeries(graphHrs)
+    }
 }

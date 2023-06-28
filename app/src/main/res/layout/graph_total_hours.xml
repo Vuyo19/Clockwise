@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Graph_TotalHours">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/graphTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Total Hours Graph" />
+
+        <!-- Return Back to previous page Button -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/Btn_back_totalHrsGraph"
+            android:layout_width="55dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/baseline_arrow_back"
+            android:contentDescription="Back Button"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/alt_back_button"
+            android:drawableStart="@drawable/baseline_arrow_back_24"
+            android:paddingStart="18dp"
+            android:layout_marginStart="15dp" />
+
+        <!-- Select Date Range Button -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/Btn_selectRangeGraph"
+            android:layout_width="290dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="70dp"
+            android:background="@drawable/alt_button_3"
+            android:drawableRight="@drawable/baseline_calendar_today_24"
+            android:fontFamily="@font/basementgrotesque"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:text="Select Date Range"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+
+        <!--Adding GraphView-->
+        <com.jjoe64.graphview.GraphView
+            android:id="@+id/Graph_TotalHrs"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/Btn_selectRangeGraph"
+            />
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
