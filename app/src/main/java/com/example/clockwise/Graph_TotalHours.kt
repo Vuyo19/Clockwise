@@ -41,7 +41,7 @@ class Graph_TotalHours : AppCompatActivity() {
 
     private var cat_totalHours : Int = 0
 
-    private var task_hoursSpent : Int = 0
+    private var task_hoursSpent : Double = 0.0
 
     private lateinit var taskDate : Date
 
@@ -52,6 +52,10 @@ class Graph_TotalHours : AppCompatActivity() {
     private lateinit var timeSpent : String
 
     private lateinit var id : String
+
+    val totalHoursFound = mutableListOf<Double>()
+
+    private var hourIndex : Double = 0.0
 
     lateinit var totalHrsGraph: GraphView
 
@@ -101,6 +105,9 @@ class Graph_TotalHours : AppCompatActivity() {
 
                 //converting string to date
                 endDate = dateFormatting.parse(dateFilterEnd)
+
+                //setting index to zero
+                hourIndex = 0.0;
 
             }
             //calling method to fetch data
@@ -172,28 +179,36 @@ class Graph_TotalHours : AppCompatActivity() {
         timeSpent = checkDiff.toHours().toString();
 
         //total time spent doing task
-        task_hoursSpent = timeSpent.toInt();
+        task_hoursSpent = timeSpent.toDouble();
+
+        //adding value to arrayList
+        totalHoursFound.add(task_hoursSpent)
 
         //calling method to configure graph
         ConfigureGraph();
     }
 
-
     private fun ConfigureGraph(){
         //erasing any previous graph values
         totalHrsGraph.removeAllSeries();
 
-        //creating series from array to add data to graph
-        val graphHrs : LineGraphSeries<DataPoint> = LineGraphSeries(
-            arrayOf(
-                //adding point in line graph
-                DataPoint(0.0, 0.0),
-                DataPoint(1.0, 1.0),
-                DataPoint(3.0, 2.0),
-                DataPoint(5.0, 5.0),
-                DataPoint(7.0, 9.0)
+        for (hours in totalHoursFound){
+            //creating series from array to add data to graph
+            val graphHrs : LineGraphSeries<DataPoint> = LineGraphSeries(
+                arrayOf(
+                    //adding point in line graph
+                    DataPoint(hourIndex, hours)
+                )
             )
-        )
+            //adding to index
+            hourIndex++;
+
+            //setting line color
+            graphHrs.color = R.color.purple_200
+
+            //adding line to graph
+            totalHrsGraph.addSeries(graphHrs)
+        }
 
         //setting graph title
         totalHrsGraph.title = "Your Hours Worked:"
@@ -213,10 +228,6 @@ class Graph_TotalHours : AppCompatActivity() {
         //making Y axis scrollable
         totalHrsGraph.viewport.setScrollableY(true)
 
-        //setting line color
-        graphHrs.color = R.color.purple_200
 
-        //adding line to graph
-        totalHrsGraph.addSeries(graphHrs)
     }
 }
