@@ -35,11 +35,13 @@ class Graph_TotalHours : AppCompatActivity() {
 
     private lateinit var endDate : Date
 
-    private lateinit var btnBackMenu: Button
-
     private lateinit var viewFilteredHours: LinearLayout
 
     private var cat_totalHours : Int = 0
+
+    private var minHour : Double = 0.0
+
+    private var maxHour : Double = 0.0
 
     private var task_hoursSpent : Double = 0.0
 
@@ -111,8 +113,47 @@ class Graph_TotalHours : AppCompatActivity() {
 
             }
             //calling method to fetch data
-            fetchData();
+            fetchMinAndMax();
         }
+    }
+
+    private fun fetchMinAndMax(){
+
+        val database = Firebase.database
+
+        // Creating a reference
+        val hourRef = database.getReference("HourGoals")
+
+        val tasksRef = hourRef.child(id)
+
+        val parentLinearLayout: LinearLayout = findViewById(R.id.parentLayoutTask) // Replace with the actual ID of your parent layout
+
+        val childRef = hourRef.child(id)
+
+        childRef.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                for (taskSnapshot in dataSnapshot.children) {
+
+                    val containerLayout = layoutInflater.inflate(R.layout.task_template, null) as CardView
+
+                    //creating unique key
+                    val uniqueKey = taskSnapshot.key // Get the unique key of each child node
+                    val taskValues = taskSnapshot.value as HashMap<*, *> // Retrieve the values of the child node as a HashMap
+
+                    //saving values from the database
+                    minHour = taskValues["txtMin"] as Double
+                    maxHour = taskValues["txtMax"] as Double
+
+                }
+            }
+            override fun onCancelled(databaseError: DatabaseError) {
+                //showing message
+                //Toast.makeText(this, "Operation Cancelled", Toast.LENGTH_SHORT).show()
+            }
+        })
+
+        // calling method to fetch the remaining data
+        fetchData();
     }
 
     private fun fetchData() {
@@ -174,6 +215,7 @@ class Graph_TotalHours : AppCompatActivity() {
         return filterSuccess
     }
 
+
     private fun calculateTotalTaskHours(){
         var checkDiff = Duration.between(LocalTime.parse(startTime), LocalTime.parse(endTime))
         timeSpent = checkDiff.toHours().toString();
@@ -192,6 +234,36 @@ class Graph_TotalHours : AppCompatActivity() {
         //erasing any previous graph values
         totalHrsGraph.removeAllSeries();
 
+        //adding min hours to graph
+        val minSeries : LineGraphSeries<DataPoint> = LineGraphSeries(
+            arrayOf(
+                //adding horizontal line
+                DataPoint(0.0, minHour)
+            )
+        )
+
+        //adding max hours to graph
+        val maxSeries : LineGraphSeries<DataPoint> = LineGraphSeries(
+            arrayOf(
+                //adding horizontal line
+                DataPoint(0.0, maxHour)
+            )
+        )
+
+        //setting colour and thickness for the lines
+        minSeries.color = R.color.black
+        minSeries.thickness = 2
+        maxSeries.color = R.color.teal_700
+        maxSeries.thickness = 2
+
+        //setting a title for the line
+        minSeries.title = "Min Hours"
+        maxSeries.title = "Max Hours"
+
+        //adding series to graph
+        totalHrsGraph.addSeries(minSeries)
+        totalHrsGraph.addSeries(maxSeries)
+
         for (hours in totalHoursFound){
             //creating series from array to add data to graph
             val graphHrs : LineGraphSeries<DataPoint> = LineGraphSeries(
@@ -206,7 +278,7 @@ class Graph_TotalHours : AppCompatActivity() {
             //setting line color
             graphHrs.color = R.color.purple_200
 
-            //adding line to graph
+            //adding data points to graph
             totalHrsGraph.addSeries(graphHrs)
         }
 
@@ -227,7 +299,5 @@ class Graph_TotalHours : AppCompatActivity() {
 
         //making Y axis scrollable
         totalHrsGraph.viewport.setScrollableY(true)
-
-
     }
 }
