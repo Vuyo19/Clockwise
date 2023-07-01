@@ -68,6 +68,9 @@ class Graph_TotalHours : AppCompatActivity() {
         //linking variable to layout graph
         totalHrsGraph = findViewById(R.id.Graph_TotalHrs)
 
+        //setting graph title
+        totalHrsGraph.title = "Your Hours Worked:"
+
         //referencing back button
         val btnBackMenu = findViewById<Button>(R.id.Btn_back_totalHrsGraph)
 
@@ -111,9 +114,13 @@ class Graph_TotalHours : AppCompatActivity() {
                 //setting index to zero
                 hourIndex = 0.0;
 
+                //erasing any previous graph values
+                totalHrsGraph.removeAllSeries();
+
+                //calling method to fetch data
+                fetchMinAndMax();
             }
-            //calling method to fetch data
-            fetchMinAndMax();
+
         }
     }
 
@@ -151,6 +158,41 @@ class Graph_TotalHours : AppCompatActivity() {
                 //Toast.makeText(this, "Operation Cancelled", Toast.LENGTH_SHORT).show()
             }
         })
+
+        //calling method to add hour goals to graph
+        AddMinAndMax();
+    }
+
+    private fun AddMinAndMax(){
+        //adding min hours to graph
+        val minSeries : LineGraphSeries<DataPoint> = LineGraphSeries(
+            arrayOf(
+                //adding horizontal line
+                DataPoint(0.0, minHour)
+            )
+        )
+
+        //adding max hours to graph
+        val maxSeries : LineGraphSeries<DataPoint> = LineGraphSeries(
+            arrayOf(
+                //adding horizontal line
+                DataPoint(0.0, maxHour)
+            )
+        )
+
+        //setting colour and thickness for the lines
+        minSeries.color = R.color.black
+        minSeries.thickness = 2
+        maxSeries.color = R.color.teal_700
+        maxSeries.thickness = 2
+
+        //setting a title for the line
+        minSeries.title = "Min Hour Goal"
+        maxSeries.title = "Max Hour Goal"
+
+        //adding series to graph
+        totalHrsGraph.addSeries(minSeries)
+        totalHrsGraph.addSeries(maxSeries)
 
         // calling method to fetch the remaining data
         fetchData();
@@ -230,39 +272,8 @@ class Graph_TotalHours : AppCompatActivity() {
         ConfigureGraph();
     }
 
+
     private fun ConfigureGraph(){
-        //erasing any previous graph values
-        totalHrsGraph.removeAllSeries();
-
-        //adding min hours to graph
-        val minSeries : LineGraphSeries<DataPoint> = LineGraphSeries(
-            arrayOf(
-                //adding horizontal line
-                DataPoint(0.0, minHour)
-            )
-        )
-
-        //adding max hours to graph
-        val maxSeries : LineGraphSeries<DataPoint> = LineGraphSeries(
-            arrayOf(
-                //adding horizontal line
-                DataPoint(0.0, maxHour)
-            )
-        )
-
-        //setting colour and thickness for the lines
-        minSeries.color = R.color.black
-        minSeries.thickness = 2
-        maxSeries.color = R.color.teal_700
-        maxSeries.thickness = 2
-
-        //setting a title for the line
-        minSeries.title = "Min Hours"
-        maxSeries.title = "Max Hours"
-
-        //adding series to graph
-        totalHrsGraph.addSeries(minSeries)
-        totalHrsGraph.addSeries(maxSeries)
 
         for (hours in totalHoursFound){
             //creating series from array to add data to graph
@@ -281,9 +292,6 @@ class Graph_TotalHours : AppCompatActivity() {
             //adding data points to graph
             totalHrsGraph.addSeries(graphHrs)
         }
-
-        //setting graph title
-        totalHrsGraph.title = "Your Hours Worked:"
 
         //setting graph to be scalable
         totalHrsGraph.viewport.isScalable = true
