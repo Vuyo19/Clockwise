@@ -5,4 +5,17 @@
 
     <string name="select">Category</string>
 
+    <style name="DatePickerDialogTheme" parent="Theme.AppCompat.Light.Dialog">
+        <!-- Customize the background color -->
+        <item name="android:background">@color/dialog_background_color</item>
+
+        <!-- Customize the text color -->
+        <item name="android:textColorPrimary">@color/dialog_text_color</item>
+
+        <!-- Customize other attributes as needed -->
+        <!-- For example, you can change the selected date color -->
+        <item name="colorAccent">@color/dialog_selected_date_color</item>
+    </style>
+
+
 </resources>

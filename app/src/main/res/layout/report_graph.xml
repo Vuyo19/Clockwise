@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".report"
+    android:background="@drawable/report_backimg">
+
+    <!-- Primary layout holding all other secondary layouts -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- Page info layout -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:orientation="vertical"
+            android:layout_gravity="center">
+
+
+            <!-- Page Heading -->
+            <TextView
+                android:id="@+id/Txt_dateRange"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="REPORTS"
+                android:fontFamily="@font/basementgrotesque"
+                android:layout_gravity="center"
+                android:textSize="33sp"
+                android:textColor="@color/white"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="5dp"/>
+
+            <!-- Page Description -->
+            <TextView
+                android:id="@+id/text_desc"
+                android:layout_height="wrap_content"
+                android:layout_width="230dp"
+                android:text="Worked hours summary"
+                android:fontFamily="@font/basementgrotesque"
+                android:layout_gravity="center"
+                android:textSize="12sp"
+                android:textAlignment="center"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:orientation="vertical"
+            android:layout_gravity="center">
+
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="40dp"
+                android:src="@drawable/baseline_calendar_today_24"
+                android:background="@android:color/transparent"
+                android:contentDescription="Back Button"
+                android:layout_marginTop="35dp"
+                android:layout_marginStart="80dp"/>
+
+            <TextView
+                android:id="@+id/current_date"
+                android:layout_height="wrap_content"
+                android:layout_width="200dp"
+                android:text="03 JUNE, 2023"
+                android:fontFamily="@font/basementgrotesque"
+                android:layout_gravity="center"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:layout_marginTop="-30dp"
+                android:layout_marginLeft="50dp"/>
+
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="700dp">
+
+            <!-- Contents of the 3rd layout -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="375dp"
+                android:orientation="vertical"
+                android:layout_marginTop="55dp"
+                tools:ignore="MissingConstraints">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_monthReport"
+                    android:layout_width="match_parent"
+                    android:layout_height="110dp"
+                    android:layout_gravity="center"
+                    android:text="Monthly Project Report \n Logged total hours for last month"
+                    android:textColor="@color/white"
+                    android:background="@drawable/alt_button_4"
+                    android:textSize="14sp"
+                    android:gravity=""
+                    android:textAllCaps="false"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="15dp"
+                    android:drawableRight="@drawable/baseline_arrow_forward_ios_24"
+                    android:paddingEnd="16dp"
+                    android:paddingStart="56dp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_notifications"
+                    android:layout_width="match_parent"
+                    android:layout_height="110dp"
+                    android:layout_gravity="center"
+                    android:text="Full Workspace Report \n All your accumalated worspace data"
+                    android:textColor="@color/white"
+                    android:background="@drawable/alt_button_4"
+                    android:textSize="14sp"
+                    android:gravity=""
+                    android:textAllCaps="false"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="15dp"
+                    android:drawableRight="@drawable/baseline_arrow_forward_ios_24"
+                    android:paddingEnd="16dp"
+                    android:paddingStart="56dp" />
+
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/nav"
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/menu_bar"
+        app:itemTextColor="@drawable/menu_items_attr"
+        app:itemIconTint="@drawable/menu_items_attr"
+        android:background="@drawable/menu_back_drop"
+        android:layout_height="wrap_content" />
+
+</RelativeLayout>

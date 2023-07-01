@@ -69,8 +69,8 @@
             android:src="@drawable/baseline_calendar_today_24"
             android:background="@android:color/transparent"
             android:contentDescription="Back Button"
-            android:layout_marginTop="98dp"
-            android:layout_marginStart="100dp"/>
+            android:layout_marginTop="58dp"
+            android:layout_marginStart="80dp"/>
 
         <TextView
             android:id="@+id/current_date"
@@ -81,7 +81,7 @@
             android:layout_gravity="center"
             android:textSize="16sp"
             android:textColor="@color/white"
-            android:layout_marginTop="50dp"/>
+            android:layout_marginTop="30dp"/>
     </LinearLayout>
 
 </LinearLayout>

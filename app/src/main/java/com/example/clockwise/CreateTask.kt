@@ -4,28 +4,21 @@ import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
-import android.content.ClipDescription
-import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
-import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import java.util.*
-import java.util.UUID
-import org.json.JSONObject
-import java.util.ArrayList
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
 
 class CreateTask : AppCompatActivity() {
 
@@ -238,13 +231,21 @@ class CreateTask : AppCompatActivity() {
         val month = calendar.get(Calendar.MONTH)
         val date = calendar.get(Calendar.DATE)
 
-        val datePickerDialog = DatePickerDialog(this, DatePickerDialog.OnDateSetListener { view, selectedYear, selectedMonth, selectedDate ->
-            val showDate = "$selectedDate / ${selectedMonth + 1} / $selectedYear"
-            btnDate.text = showDate // Set the value of showDate to btnDate text
-        }, year, month, date)
+        val datePickerDialog = DatePickerDialog(
+            this,
+            R.style.DatePickerDialogTheme,
+            DatePickerDialog.OnDateSetListener { view, selectedYear, selectedMonth, selectedDate ->
+                val showDate = "$selectedDate / ${selectedMonth + 1} / $selectedYear"
+                btnDate.text = showDate // Set the value of showDate to btnDate text
+            },
+            year,
+            month,
+            date
+        )
 
         datePickerDialog.show()
     }
+
     data class TaskNode(
         val category: String,
         val description: String,
