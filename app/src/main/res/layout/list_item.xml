@@ -5,7 +5,12 @@
     android:padding="16dp"
     android:ellipsize="end"
     android:maxLines="1"
-    android:textAppearance="?attr/textAppearanceSubtitle1">
+    android:textAppearance="?attr/textAppearanceSubtitle1"
+    android:textColor="@color/white"
+    android:textColorHint="@color/white"
+    android:textStyle="bold"
+    android:fontFamily="@font/basementgrotesque"
+    android:background="@drawable/task_view_back_img">
 
 
 
